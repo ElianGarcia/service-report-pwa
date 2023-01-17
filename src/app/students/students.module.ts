@@ -5,6 +5,7 @@ import { StudentsRoutingModule } from './students-routing.module';
 import { StudentsComponent } from './students.component';
 import { FormComponent } from './form/form.component';
 import { CardComponent } from './card/card.component';
+import { SharedComponentsModule } from '../shared-components/shared-components.module';
 
 
 @NgModule({
@@ -15,6 +16,7 @@ import { CardComponent } from './card/card.component';
   ],
   imports: [
     CommonModule,
+    SharedComponentsModule,
     StudentsRoutingModule
   ]
 })

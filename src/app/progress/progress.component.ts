@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { GoalsService } from '../services/goals.service';
 
 @Component({
   selector: 'app-progress',
@@ -6,10 +7,17 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./progress.component.css']
 })
 export class ProgressComponent implements OnInit {
+  list: any[] = []
 
-  constructor() { }
+  constructor(private goalsService: GoalsService) { }
 
-  ngOnInit(): void {
+  ngOnInit() {
+    this.getData();
   }
 
+  getData() {
+    this.goalsService.getProgress().subscribe(res => {
+      this.list = res;
+    })
+  }
 }

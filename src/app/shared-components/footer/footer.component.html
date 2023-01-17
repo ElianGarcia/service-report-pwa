@@ -1,1 +1,31 @@
-<p>footer works!</p>
+<mat-toolbar class="footer col-8 d-flex">
+    <div class="card border-0">
+        <div class="card-header">
+            <ul class="nav nav-tabs justify-content-center" role="tablist">
+                <li class="nav-item">
+                    <a class="nav-link active" data-toggle="tab" href="javascript:void(0)" role="tab">
+                        Home
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" data-toggle="tab" href="javascript:void(0)" role="tab" [routerLink]="['/progress']" routerLinkActive="router-link-active" >
+                        Profile
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" data-toggle="tab" href="javascript:void(0)" role="tab">
+                        Messages
+                    </a>
+                </li>
+                
+                <li class="nav-item">
+                    <a class="nav-link" data-toggle="tab" href="javascript:void(0)" role="tab">
+                        Settings
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</mat-toolbar>

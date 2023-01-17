@@ -1,1 +1,17 @@
-<p>students works!</p>
+<app-header
+    [title]="'Estudiantes'"> 
+</app-header>
+
+<div class="container col-md-8 pb-5">
+    <div class="row">
+        <div class="col-12">
+            <app-card 
+                *ngFor="let item of studentList" 
+                [student]="item">
+            </app-card>
+        </div>
+    </div>
+</div>
+
+<app-footer></app-footer>
+

@@ -2,8 +2,8 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ProgressComponent } from './progress.component';
 import { CardComponent } from './card/card.component';
-
-
+import { SharedComponentsModule } from '../shared-components/shared-components.module';
+import { ProgressRoutingModule } from './progress-routing.module';
 
 @NgModule({
   declarations: [
@@ -11,7 +11,9 @@ import { CardComponent } from './card/card.component';
     CardComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    SharedComponentsModule,
+    ProgressRoutingModule
   ]
 })
 export class ProgressModule { }

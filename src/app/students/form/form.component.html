@@ -1,1 +1,102 @@
-<p>form works!</p>
+<app-header [title]="'Editar Estudiante'">
+</app-header>
+
+<div class="container col-md-8">
+    <div class="row">
+        <div class="col-12">
+            <form [formGroup]="mainForm">
+
+                <div class="row">
+                    <mat-form-field class="col-xl-6 col-md-12 col-sm-12">
+                        <mat-label>Nombre</mat-label>
+                        <input matInput type="text" formControlName="name">
+                        <button *ngIf="mainForm.get('name').value" matSuffix mat-icon-button aria-label="Clear"
+                            (click)="value=''">
+                            <mat-icon>close</mat-icon>
+                        </button>
+                        <mat-error *ngIf="isSubmitted">
+                            {{getError('name')}}
+                        </mat-error>
+                    </mat-form-field>
+
+                    <mat-form-field class="col-xl-6 col-md-12">
+                        <mat-label>Teléfono</mat-label>
+                        <input matInput type="text" formControlName="phone">
+                        <button *ngIf="mainForm.get('phone').value" matSuffix mat-icon-button aria-label="Clear"
+                            (click)="value=''">
+                            <mat-icon>close</mat-icon>
+                        </button>
+                        <mat-error *ngIf="isSubmitted">
+                            {{getError('phone')}}
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+
+                <div class="row">
+                    <mat-form-field class="col-xl-6 col-md-12" appearance="fill">
+                        <mat-label>Publicacion con la que estudia</mat-label>
+                        <mat-select formControlName="placementId">
+                            <mat-option>Clear</mat-option>
+                            <mat-option *ngFor="let item of placements"
+                                [value]="item.placementId">{{item.name}}</mat-option>
+                        </mat-select>
+                        <mat-error *ngIf="isSubmitted">
+                            {{getError('placementId')}}
+                        </mat-error>
+                    </mat-form-field>
+
+                    <mat-form-field class="col-xl-6 col-md-12" appearance="fill">
+                        <mat-label>Dia preferido para visitar</mat-label>
+                        <mat-select formControlName="dayToVisit">
+                            <mat-option>Clear</mat-option>
+                            <mat-option *ngFor="let item of days" [value]="item.id">{{item.name}}</mat-option>
+                        </mat-select>
+                        <mat-error *ngIf="isSubmitted">
+                            {{getError('dayToVisit')}}
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+
+                <div class="row">
+                    <mat-form-field class="col-md-10">
+                        <mat-label>Direccion</mat-label>
+                        <input matInput type="text" formControlName="address">
+                        <button *ngIf="mainForm.get('address').value" matSuffix mat-icon-button aria-label="Clear"
+                            (click)="value=''">
+                            <mat-icon>close</mat-icon>
+                        </button>
+                        <mat-error *ngIf="isSubmitted">
+                            {{getError('address')}}
+                        </mat-error>
+                    </mat-form-field>
+
+                    <mat-slide-toggle class="col-md-2" formControlName="active">Activo</mat-slide-toggle>
+
+                </div>
+                <mat-form-field class="col-md-12">
+                    <mat-label>Observaciones</mat-label>
+                    <input matInput type="text" formControlName="observations">
+                    <button *ngIf="mainForm.get('observations').value" matSuffix mat-icon-button aria-label="Clear"
+                        (click)="value=''">
+                        <mat-icon>close</mat-icon>
+                    </button>
+                    <mat-error *ngIf="isSubmitted">
+                        {{getError('observations')}}
+                    </mat-error>
+                </mat-form-field>
+            </form>
+
+            <div class="row mt-2 d-flex justify-content-end">
+                <div class="col-2">
+                    <a href="javascript:void(0)" class="btn d-block btn-outline-dark">
+                        Cancelar</a>
+                </div>
+
+                <div class="col-2">
+                    <a type="submit" class="btn d-block btn-dark" (click)="submitForm()">
+                        Guardar</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
