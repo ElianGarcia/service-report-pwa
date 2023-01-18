@@ -5,6 +5,7 @@ import { GoalsRoutingModule } from './goals-routing.module';
 import { GoalsComponent } from './goals.component';
 import { FormComponent } from './form/form.component';
 import { CardComponent } from './card/card.component';
+import { SharedComponentsModule } from '../shared-components/shared-components.module';
 
 
 @NgModule({
@@ -15,7 +16,8 @@ import { CardComponent } from './card/card.component';
   ],
   imports: [
     CommonModule,
-    GoalsRoutingModule
+    GoalsRoutingModule,
+    SharedComponentsModule
   ]
 })
 export class GoalsModule { }

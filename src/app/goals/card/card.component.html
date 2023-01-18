@@ -1,1 +1,31 @@
-<p>card works!</p>
+<div class="card mt-2">
+    <br/>
+      <table style="width:100%" class="justify-content-center">
+        <tr>
+          <th><mat-icon>{{icon}}</mat-icon></th>
+          <th><mat-icon>timeline</mat-icon></th> 
+          <th *ngIf="!overcomed()"><mat-icon>bike_scooter</mat-icon></th>
+          <th *ngIf="overcomed()"><mat-icon>military_tech</mat-icon></th>
+        </tr>
+
+        <br/>
+
+        <tr>
+          <th>{{title}}</th>
+          <th>Goal</th> 
+          <th *ngIf="!overcomed()">Remaining</th>
+          <th *ngIf="overcomed()">Overcome</th>
+        </tr>
+
+        <br/>
+
+        <tr>
+          <td>{{values.actual}}</td>
+          <td>{{values.goal}}</td>
+          <td *ngIf="!overcomed()">{{values.remaining}}</td>
+          <td *ngIf="overcomed()">{{values.remaining * -1}}</td>
+        </tr>
+
+        <br>
+      </table>
+  </div>

@@ -6,6 +6,8 @@ import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { NoDataFoundComponent } from './no-data-found/no-data-found.component';
+import { AboutComponent } from './about/about.component';
 
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
@@ -18,12 +20,16 @@ import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatTabsModule } from '@angular/material/tabs';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
 
 @NgModule({
   declarations: [
     HeaderComponent,
     FooterComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    NoDataFoundComponent,
+    AboutComponent
   ],
   imports: [
     CommonModule,
@@ -34,11 +40,13 @@ import { MatTabsModule } from '@angular/material/tabs';
     MatListModule,
     MatTabsModule,
     MatDialogModule,
+    MatNativeDateModule,
     MatButtonModule,
     MatInputModule,
     MatSelectModule,
     MatSlideToggleModule,
     MatCardModule,
+    MatDatepickerModule,
     FormsModule, 
     ReactiveFormsModule,
     SharedComponentsRoutingModule
@@ -47,6 +55,7 @@ import { MatTabsModule } from '@angular/material/tabs';
     HeaderComponent,
     FooterComponent,
     NotFoundComponent,
+    NoDataFoundComponent,
     MatToolbarModule,
     MatIconModule,
     MatCardModule,

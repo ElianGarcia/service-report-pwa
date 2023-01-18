@@ -7,7 +7,7 @@ import { GoalsService } from '../services/goals.service';
   styleUrls: ['./progress.component.css']
 })
 export class ProgressComponent implements OnInit {
-  list: any[] = []
+  list: any[] = undefined;
 
   constructor(private goalsService: GoalsService) { }
 

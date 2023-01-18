@@ -2,11 +2,43 @@
     <span>{{title}}</span>
     <span class="example-spacer"></span>
     
+    <button mat-icon-button class="example-icon" *ngIf="showAddStudent"
+        [routerLink]="['/students/form']" routerLinkActive="router-link-active" >
+        <mat-icon>person_add</mat-icon>
+    </button>
+
+    <button mat-icon-button class="example-icon" *ngIf="showEditGoal"
+        [routerLink]="['/goals/form']" routerLinkActive="router-link-active" >
+        <mat-icon>mode_edit</mat-icon>
+    </button>
+    
+    <article *ngIf="showCalendar">
+        <input mat-icon-button class="example-icon datepicker" 
+            [(ngModel)]="dateSelected"
+            [matDatepicker]="releasedAtPicker" 
+            (click)="releasedAtPicker.open()"
+            disabled
+            [max]="maxDate"
+            (dateChange)="sendDate()">
+    
+        <mat-datepicker-toggle matSuffix 
+            [for]="releasedAtPicker" 
+            [disabled]="false">
+
+        </mat-datepicker-toggle>
+    
+        <mat-datepicker #releasedAtPicker 
+            [disabled]="false">
+            
+        </mat-datepicker>
+    </article>
+    
     <button mat-icon-button class="example-icon" [matMenuTriggerFor]="menu" aria-label="Menu icon button">
         <mat-icon>more_vert</mat-icon>
     </button>
+    
     <mat-menu #menu="matMenu">
-        <button mat-menu-item>Item 1</button>
-        <button mat-menu-item>Item 2</button>
+        <button mat-menu-item>About</button>
+        <button mat-menu-item (click)="logout()">Logout</button>
       </mat-menu>
 </mat-toolbar>

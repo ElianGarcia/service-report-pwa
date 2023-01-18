@@ -1,4 +1,5 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { UsersService } from 'src/app/services/users.service';
 
 @Component({
   selector: 'app-header',
@@ -7,10 +8,25 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
   @Input() title: string = '';
+  @Input() showEditGoal: boolean = false;
+  @Input() showAddStudent: boolean = false;
+  @Input() showCalendar: boolean = false;
+  @Output() editingDate = new EventEmitter();
 
-  constructor() { }
+  maxDate = new Date();
+  dateSelected = new Date();
+
+  constructor(private userService : UsersService) { }
 
   ngOnInit(): void {
 
+  }
+
+  logout() {
+    this.userService.logOut();
+  }
+
+  sendDate() {
+    this.editingDate.emit(this.dateSelected);
   }
 }

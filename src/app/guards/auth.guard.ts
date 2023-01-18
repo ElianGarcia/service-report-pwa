@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
-import { ActivatedRouteSnapshot, CanActivate, Router, RouterStateSnapshot, UrlTree } from '@angular/router';
+import { CanActivate, Router } from '@angular/router';
 import { JwtHelperService } from '@auth0/angular-jwt';
-import { Observable } from 'rxjs';
 import { ModalService } from '../services/modal.service';
 
 @Injectable({
@@ -21,8 +20,8 @@ export class AuthGuard implements CanActivate {
       return true;
     }
 
-    this.router.navigate(["login"]);
-    //this.modal.showMessage("You are not authorized to access this page!");
+    this.router.navigate(["auth/login"]);
+    this.modal.showMessage("You are not authorized to access this page!");
     console.log("Token is expired");
     return false;
   }

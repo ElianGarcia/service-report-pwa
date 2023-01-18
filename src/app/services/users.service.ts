@@ -48,4 +48,8 @@ export class UsersService {
     return this.httpClient.post<any>(EndPoints.REGISTER, user);
   }
   
+  sendRecoveryMail(mail: string): Observable<number> {
+    return this.httpClient.post<any>(EndPoints.RECOVERY_PASSWORD, mail);
+  }
+  
 }

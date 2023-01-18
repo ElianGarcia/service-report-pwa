@@ -5,7 +5,12 @@ import { TabsComponent } from './tabs.component';
 const routes: Routes = [
   {
     path: '',
-    component: TabsComponent
+    redirectTo: 'home',
+    pathMatch: 'full'
+  },
+  {
+    path: 'home',
+    component: TabsComponent,
   },
   {
     path: 'students',

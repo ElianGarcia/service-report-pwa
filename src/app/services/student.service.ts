@@ -14,8 +14,7 @@ export class StudentService {
   constructor(private httpClient: HttpClient, private userService: UsersService) { }
 
   get userId () {
-    return 2;
-    //return this.userService.getUser().userId;
+    return this.userService.getUser().userId;
   }
 
   public getStudents(): any {

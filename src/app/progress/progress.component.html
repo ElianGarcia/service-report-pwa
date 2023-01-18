@@ -1,11 +1,14 @@
-<app-header 
-    [title]="'Progreso'">
+<app-header [title]="'Progreso'">
 </app-header>
 
 <div class="container col-md-8 pb-5">
-    <div class="row">
-        <div class="col-12">
-            <app-card></app-card>
+    <div class="row justify-content-center">
+        <div class="col-12" *ngIf="list">
+            <app-card *ngFor="let item of list" [data]="item"></app-card>
+        </div>
+
+        <div class="col-10 mt-3" *ngIf="!list || list.length < 1">
+            <app-no-data-found></app-no-data-found>
         </div>
     </div>
 </div>

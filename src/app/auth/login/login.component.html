@@ -1,0 +1,55 @@
+<app-header 
+    [title]="'Login'">
+</app-header>
+
+<div class="container col-md-8 pb-5 mt-5">
+    <div class="row">
+        <div class="col-12 d-flex justify-content-center">
+            <div class="col-md-8" [formGroup]="mainForm">
+                <h1>Login</h1>
+
+                <mat-form-field class="col-12 mt-3">
+                    <mat-label>Username</mat-label>
+                    <input matInput type="text" formControlName="username">
+                    <button *ngIf="mainForm.get('username').value" matSuffix mat-icon-button aria-label="Clear"
+                        (click)="value=''">
+                        <mat-icon>close</mat-icon>
+                    </button>
+                    <mat-error>
+                        {{mainForm.get('username').errors}}
+                    </mat-error>
+                </mat-form-field>
+
+                <mat-form-field class="col-12 mt-2">
+                    <mat-label>Password</mat-label>
+                    <input matInput type="password" formControlName="password">
+                    <button *ngIf="mainForm.get('password').value" matSuffix mat-icon-button aria-label="Clear"
+                        (click)="value=''">
+                        <mat-icon>close</mat-icon>
+                    </button>
+                    <mat-error>
+                        {{mainForm.get('password').errors}}
+                    </mat-error>
+                </mat-form-field>
+
+                <ion-chip color="danger" class="mb-2" *ngIf="invalidLogin">Incorrect username or password.</ion-chip>
+
+                <div class="row justify-content-end m-3">
+                    <input type="submit" class="col-4 btn d-block btn-dark" value="Login" (click)="login()" />
+                </div>
+
+                <span class="row justify-content-around">
+                    <a [routerLink]="['/auth/forgot-password']" 
+                        routerLinkActive="router-link-active"  
+                        href="javascript:void(0)" 
+                        class="text-start col-5">Forgot Password?</a>
+
+                    <a [routerLink]="['/auth/register']" 
+                        routerLinkActive="router-link-active"  
+                        href="javascript:void(0)" 
+                        class="text-end col-5">New User?</a>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>

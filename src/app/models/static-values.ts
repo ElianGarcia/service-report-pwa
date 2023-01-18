@@ -30,7 +30,9 @@ export const EndPoints = {
     GETPLACEMENTS: `${environment.api}placements/`,
 
     LOGIN: `${environment.api}authentication/login/`,
-    REGISTER: `${environment.api}authentication/`
+    REGISTER: `${environment.api}authentication/`,
+    RECOVERY_PASSWORD: `${environment.api}authentication/recoveryPassword/`,
+    RESET_PASSWORD: `${environment.api}authentication/resetPassword/`
 }
 
 export const Months = {

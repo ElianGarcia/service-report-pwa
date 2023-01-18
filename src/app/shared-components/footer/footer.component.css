@@ -115,22 +115,6 @@ body {
     }
 }
 
-/* .now-ui-icons.home:before {
-    content: "\f015";
-}
-
-.now-ui-icons.shopping_cart-simple:before {
-    content: "\ea1d";
-}
-
-.now-ui-icons.shopping_shop:before {
-    content: "\ea50";
-}
-
-.now-ui-icons.ui-2_settings-90:before {
-    content: "\ea4b";
-} */
-
 .nav-tabs {
     border: 0;
     padding: 15px 0.7rem;
@@ -280,4 +264,6 @@ footer p a:hover{
     }
 }
 
-
+.nav-link {
+    font-size: large !important;
+}

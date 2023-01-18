@@ -1,1 +1,32 @@
-<p>goals works!</p>
+<app-header [title]="'Home'" [showEditGoal]="true">
+</app-header>
+
+<div class="container col-md-8 pb-5">
+    <div class="row justify-content-center">
+        <div *ngIf="goal">
+            <app-card 
+                [icon]="'schedule'" 
+                [title]="'Hours'" 
+                [values]="hours">
+            </app-card>
+
+            <app-card 
+                [icon]="'books'" 
+                [title]="'Placements'" 
+                [values]="placements">
+            </app-card>
+
+            <app-card 
+                [icon]="'perm_media'" 
+                [title]="'Videos'" 
+                [values]="videos">
+            </app-card>
+        </div>
+
+        <div class="col-8 mt-3" *ngIf="!goal">
+            <app-no-data-found></app-no-data-found>
+        </div>
+    </div>
+</div>
+
+<app-footer></app-footer>

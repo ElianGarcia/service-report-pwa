@@ -1,1 +1,37 @@
-<p>tabs works!</p>
+<app-header 
+    [title]="'Home'"
+    [showCalendar]="true"
+    (editingDate)="editPastDate($event)">
+</app-header>
+
+<mat-toolbar>
+    <mat-toolbar-row class="justify-content-center">
+        <span class="text-center mt-2">
+            <h3>{{getDate() | date: 'EEEE dd, MMMM yyyy'}}</h3>
+        </span>
+    </mat-toolbar-row>
+</mat-toolbar>
+
+<div class="container col-md-8 pb-5">
+    <div class="row justify-content-center">
+        <app-input-group 
+      title="Hours" 
+      [value]="activity.hours"
+      (valueChange)="receiveData($event)">
+    </app-input-group>
+
+    <app-input-group 
+      title="Placements" 
+      [value]="activity.placements"
+      (valueChange)="receiveData($event)">
+    </app-input-group>
+
+    <app-input-group 
+      title="Videos" 
+      [value]="activity.videos"
+      (valueChange)="receiveData($event)">
+    </app-input-group>
+    </div>
+</div>
+
+<app-footer></app-footer>

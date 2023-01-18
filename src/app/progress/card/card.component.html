@@ -1,39 +1,23 @@
-<!-- <mat-card>
-    <div color="primary" lines="none">
-      <label><h1>{{getMonth()}}</h1></label>
-    </div>
-  
-    <div color="medium" lines="none">
-      <label>Hours</label>
-      <label>Placements</label>
-      <label>Videos</label>
-      <label>Return <br> Visits</label>
-    </div>
-  
-    <div color="tertiary" lines="none">
-      <label><h1 class="fw-bold">{{hoursCount}}</h1></label>
-      <label><h1 class="fw-bold">{{placementsCount}}</h1></label>
-      <label><h1 class="fw-bold">{{videosCount}}</h1></label>
-      <label><h1 class="fw-bold">{{returnVisitsCount}}</h1></label>
-    </div>
-  </mat-card> -->
-
-  <mat-card class="example-card justify-content-center">
-    <mat-card-header>
-      <div mat-card-avatar class="example-header-image"></div>
-      <mat-card-title>January</mat-card-title>
-    </mat-card-header>
-    <mat-card-content>
-        <mat-tab-group>
-            <mat-tab label="First"></mat-tab>
-            <mat-tab label="Second"></mat-tab>
-            <mat-tab label="Third"></mat-tab>
-        </mat-tab-group>
-
-        <mat-tab-group>
-            <mat-tab label="First"></mat-tab>
-            <mat-tab label="Second"></mat-tab>
-            <mat-tab label="Third"></mat-tab>
-        </mat-tab-group>
-    </mat-card-content>
-  </mat-card>
+<mat-card class="example-card justify-content-center mt-2">
+  <mat-card-header class="justify-content-center">
+    <mat-card-title>{{getMonth()}}</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <br />
+    <table style="width:100%" class="justify-content-center">
+      <tr>
+        <th>Horas</th>
+        <th>Publicaciones</th>
+        <th>Videos</th>
+        <th>Revisitas</th>
+      </tr>
+      <br />
+      <tr>
+        <td>{{hoursCount}}</td>
+        <td>{{placementsCount}}</td>
+        <td>{{videosCount}}</td>
+        <td>{{returnVisitsCount}}</td>
+      </tr>
+    </table>
+  </mat-card-content>
+</mat-card>

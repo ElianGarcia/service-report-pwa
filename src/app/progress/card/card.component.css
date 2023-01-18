@@ -1,8 +1,24 @@
 .example-card {
-    max-width: 100%;
-  }
-  
-  .example-header-image {
-    background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
-    background-size: cover;
-  }
+  max-width: 100%;
+}
+
+.example-header-image {
+  background-image: url("https://material.angular.io/assets/img/examples/shiba1.jpg");
+  background-size: cover;
+}
+
+.headers > .nav-item {
+  font-size: large;
+}
+
+.nav-item {
+  font-weight: 500;
+  font-size: large;
+}
+
+table, th, td {
+  border: 0 solid black;
+  border-collapse: collapse;
+  text-align: center;
+  font-size: large;
+}

@@ -1,0 +1,23 @@
+<div class="row">
+    <div class="col">
+      <span color="primary" class="text-center">
+        <h2>{{title}}</h2>
+      </span>
+  
+      <div class="xc">
+        <div lines="none" class="row">
+          <button class="btn btn-block col" (click)="subs()" [disabled]="value <= 0">
+            <mat-icon>remove</mat-icon>
+          </button>
+  
+          <input class="col" type="number" [min]="0" [value]="value" [(ngModel)]="value" />
+  
+          <button class="btn btn-block col" (click)="sum()" [disabled]="value >= 23">
+            <mat-icon>add</mat-icon>
+          </button>
+        </div>
+      </div>
+    </div>
+</div>
+  
+<hr/>

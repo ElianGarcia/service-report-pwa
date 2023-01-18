@@ -8,6 +8,7 @@ import { Months } from 'src/app/models/static-values';
 })
 export class CardComponent implements OnInit {
   @Input() data : any;
+  
   hoursCount : number = 0;
   placementsCount : number = 0;
   videosCount : number = 0;
@@ -17,9 +18,9 @@ export class CardComponent implements OnInit {
 
   ngOnInit() {}
 
-  // getMonth() : string {
-  //   return this.data.month ? Months[this.data.month-1] : '';
-  // }
+  getMonth() : string {
+    return this.data.month ? Months[this.data.month-1] : '';
+  }
 
   hoursCountStop : any = setInterval(() => {
     this.hoursCount++;
