@@ -29,8 +29,12 @@ export const EndPoints = {
 
     GETPLACEMENTS: `${environment.api}placements/`,
 
+    GETCONGREGATIONS: `${environment.api}congregation/`,
+
+    GETCOUNTRIES: `${environment.api}countries/`,
+
     LOGIN: `${environment.api}authentication/login/`,
-    REGISTER: `${environment.api}authentication/`,
+    REGISTER: `${environment.api}users/`,
     RECOVERY_PASSWORD: `${environment.api}authentication/recoveryPassword/`,
     RESET_PASSWORD: `${environment.api}authentication/resetPassword/`
 }

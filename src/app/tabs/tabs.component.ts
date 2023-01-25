@@ -11,12 +11,12 @@ import { UsersService } from '../services/users.service';
   styleUrls: ['./tabs.component.css']
 })
 export class TabsComponent implements OnInit {
-  activity : Activity;
+  activity : Activity = new Activity();
   mainForm: FormGroup;
 
   constructor(private dailyActivity : DailyActivityService, private fb : FormBuilder,
     private modalService : ModalService, private userService : UsersService) { 
-    this.activity = new Activity();
+    this.getData();
   }
 
   ngOnInit() {
@@ -53,6 +53,9 @@ export class TabsComponent implements OnInit {
       case 'Videos':
         this.activity.videos = $event.value;
         break;
+      case 'Revisitas':
+        this.activity.returnVisits = $event.value;
+        break;
       default:
         break;
     }
@@ -66,6 +69,7 @@ export class TabsComponent implements OnInit {
       hours: [this.activity.hours, [Validators.required]],
       placements: [this.activity.placements, [Validators.required]],
       videos: [this.activity.videos, [Validators.required]],
+      returnVisits: [this.activity.returnVisits, [Validators.required]],
       userId: [0, [Validators.required]],
       date: [this.activity.date, [Validators.required]]
     })

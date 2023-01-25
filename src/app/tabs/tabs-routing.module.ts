@@ -23,6 +23,10 @@ const routes: Routes = [
   {
     path: 'progress',
     loadChildren: () => import('../progress/progress.module').then(m => m.ProgressModule)
+  },
+  {
+    path: 'shared',
+    loadChildren: () => import('../shared-components/shared-components.module').then(m => m.SharedComponentsModule)
   }
 ];
 

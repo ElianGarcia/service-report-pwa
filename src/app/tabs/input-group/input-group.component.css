@@ -2,7 +2,7 @@ input[type="number"] {
     text-align: center;
     border: 1px transparent;
     border-radius: 50% 20% / 10% 40%;
-    background-color: #EFEFEF;
+    background-color: #def6f7;
 }
 
 input[type="number"] {
@@ -18,30 +18,14 @@ input[type=number]::-webkit-outer-spin-button {
 
 input[type="number"] {
     width: 120px;
-    height: 100%;
     margin-right: 4px;
     margin-left: 4px;
     font-size: 1.5rem;
 }
 
-.fullheight {
-    height: 100%;
-  }
-  
   .xc {
     display: flex;
     align-items: center;
     justify-content: center;
   }
   
-  .vcs {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  
-  .hcs {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-  }

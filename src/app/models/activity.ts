@@ -3,6 +3,7 @@ export class Activity {
     hours : number;
     placements : number;
     videos : number;
+    returnVisits : number;
     date: Date;
     userId: number;
 
@@ -11,6 +12,7 @@ export class Activity {
         this.hours = 0;
         this.placements = 0;
         this.videos = 0;
+        this.returnVisits = 0;
         this.date = new Date();
         this.userId = 1;
     }

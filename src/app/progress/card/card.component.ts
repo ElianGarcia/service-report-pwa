@@ -7,50 +7,59 @@ import { Months } from 'src/app/models/static-values';
   styleUrls: ['./card.component.css']
 })
 export class CardComponent implements OnInit {
-  @Input() data : any;
-  
-  hoursCount : number = 0;
-  placementsCount : number = 0;
-  videosCount : number = 0;
-  returnVisitsCount : number = 0;
+  @Input() data: any;
+
+  hoursCount: number = 0;
+  placementsCount: number = 0;
+  videosCount: number = 0;
+  returnVisitsCount: number = 0;
 
   constructor() { }
 
-  ngOnInit() {}
+  ngOnInit() { }
 
-  getMonth() : string {
-    return this.data.month ? Months[this.data.month-1] : '';
+  getMonth(): string {
+    return this.data.month ? Months[this.data.month - 1] : '';
   }
 
-  hoursCountStop : any = setInterval(() => {
-    this.hoursCount++;
+  hoursCountStop: any = setInterval(() => {
+    if (this.data.hours != 0) {
+      this.hoursCount++;
 
-    if(this.hoursCount == this.data.hours) {
-      clearInterval(this.hoursCountStop);
+      if (this.hoursCount == this.data.hours) {
+        clearInterval(this.hoursCountStop);
+      }
     }
-  }, 10);
-  
-  placementsCountStop : any = setInterval(() => {
-    this.placementsCount++;
+  }, 75);
 
-    if(this.placementsCount == this.data.placements) {
-      clearInterval(this.placementsCountStop);
-    }
-  }, 10);
-  
-  returnVisitsCountStop : any = setInterval(() => {
-    this.returnVisitsCount++;
+  placementsCountStop: any = setInterval(() => {
+    if (this.data.placements != 0) {
+      this.placementsCount++;
 
-    if(this.returnVisitsCount == this.data.returnVisits) {
-      clearInterval(this.returnVisitsCountStop);
+      if (this.placementsCount == this.data.placements) {
+        clearInterval(this.placementsCountStop);
+      }
     }
-  }, 10);
-  
-  videosCountStop : any = setInterval(() => {
-    this.videosCount++;
+  }, 75);
 
-    if(this.videosCount == this.data.videos) {
-      clearInterval(this.videosCountStop);
+  returnVisitsCountStop: any = setInterval(() => {
+    if (this.data.returnVisits != 0) {
+
+      this.returnVisitsCount++;
+
+      if (this.returnVisitsCount == this.data.returnVisits) {
+        clearInterval(this.returnVisitsCountStop);
+      }
     }
-  }, 10);
+  }, 75);
+
+  videosCountStop: any = setInterval(() => {
+    if (this.data.videos != 0) {
+      this.videosCount++;
+
+      if (this.videosCount == this.data.videos) {
+        clearInterval(this.videosCountStop);
+      }
+    }
+  }, 75);
 }

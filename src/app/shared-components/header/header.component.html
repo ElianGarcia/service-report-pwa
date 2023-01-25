@@ -3,12 +3,12 @@
     <span class="example-spacer"></span>
     
     <button mat-icon-button class="example-icon" *ngIf="showAddStudent"
-        [routerLink]="['/students/form']" routerLinkActive="router-link-active" >
+        [routerLink]="['/app/students/form']" routerLinkActive="router-link-active" >
         <mat-icon>person_add</mat-icon>
     </button>
 
     <button mat-icon-button class="example-icon" *ngIf="showEditGoal"
-        [routerLink]="['/goals/form']" routerLinkActive="router-link-active" >
+        [routerLink]="['/app/goals/form']" routerLinkActive="router-link-active" >
         <mat-icon>mode_edit</mat-icon>
     </button>
     
@@ -38,7 +38,7 @@
     </button>
     
     <mat-menu #menu="matMenu">
-        <button mat-menu-item>About</button>
+        <button mat-menu-item [routerLink]="['../shared/about']" routerLinkActive="router-link-active" >About</button>
         <button mat-menu-item (click)="logout()">Logout</button>
       </mat-menu>
 </mat-toolbar>

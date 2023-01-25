@@ -6,20 +6,30 @@
         </svg>
 
         <div class="col-9">
-            <h2 class="card-title">{{student.name}}</h2>
+            <div class="d-flex justify-content-between">
+                <div>
+                    <h2 class="card-title">{{student.name}}</h2>
+                </div>
+
+                <button class="btn"
+                        (click)="delete()">
+                        <mat-icon>delete_outline</mat-icon>
+                    </button>
+            </div>
+            
             <p class="card-text">{{student.placementName}} <br> {{student.observations}}</p>
             <div class="row justify-content-end">
                 <div class="col col-xl-4 col-md-4 col-sm-4">
                     <a href="javascript:void(0)" class="btn d-block btn-outline-dark"
-                        (click)="delete()">
-                    Eliminar</a>
+                        [routerLink]="['form/', student.studentId]"
+                        routerLinkActive="router-link-active">
+                    Editar</a>
                 </div>
                 
                 <div class="col col-xl-4 col-md-4 col-sm-4">
                     <a href="#" class="btn d-block btn-dark"
-                        [routerLink]="['form/', student.studentId]"
-                        routerLinkActive="router-link-active">
-                    Editar</a>
+                        >
+                    Revisita</a>
                 </div>
             </div>
         </div>

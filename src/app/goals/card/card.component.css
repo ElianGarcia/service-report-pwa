@@ -1,6 +1,12 @@
-table, th, td {
-    border: 0 solid black;
-    border-collapse: collapse;
-    text-align: center;
-    font-size: large;
-  }
+table,
+th,
+td {
+  border: 0 solid black;
+  border-collapse: collapse;
+  text-align: center;
+  font-size: large;
+}
+
+th {
+  width: 33%;
+}

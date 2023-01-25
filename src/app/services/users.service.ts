@@ -14,7 +14,7 @@ export class UsersService {
   _user = new BehaviorSubject<User>({} as User);
 
   constructor(private httpClient: HttpClient, private jwtHelper : JwtHelperService,
-    private modal : ModalService, private router : Router) { 
+    private router : Router) { 
 
     }
 
@@ -40,7 +40,7 @@ export class UsersService {
 
   public logOut = () => {
     localStorage.removeItem("jwt");
-    this.router.navigate(["/"]);
+    this.router.navigateByUrl("/auth/login");
   }
 
   //Inset row in the table

@@ -1,0 +1,69 @@
+.card {
+    padding: 15px;
+    width: 100%;
+    border-radius: 5px;
+    border-color: transparent;
+    text-align: center;
+    user-select: none;
+}
+
+.cover-photo {
+    position: relative;
+    background: url(https://i.imgur.com/jxyuizJ.jpeg);
+    background-size: cover;
+    height: 180px;
+    border-radius: 10px;
+}
+
+.profile {
+    position: relative;
+    width: 120px;
+    border-radius: 50%;
+    border: 2px solid #222;
+    background: #222;
+    margin: auto;
+}
+
+.profile-name {
+    font-size: 20px;
+    margin: 25px 0 0 0px;
+    color: rgb(19, 18, 18);
+}
+
+.about {
+    margin-top: 30px;
+    line-height: 1.6;
+}
+
+.btn {
+    margin: 30px 15px;
+    background: #7ce3ff;
+    padding: 10px 25px;
+    border-radius: 3px;
+    border: 1px solid #7ce3ff;
+    font-weight: bold;
+    font-family: Montserrat;
+    cursor: pointer;
+    color: #222;
+    transition: 0.2s;
+}
+
+.icons {
+    width: 180px;
+    margin: 0 auto 10px;
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+    color: black;
+}
+
+.icons mat-icon {
+    cursor: pointer;
+    padding: 5px;
+    font-size: 18px;
+    transition: 0.2s;
+}
+
+.icons mat-icon:hover {
+    color: #7ce3ff;
+}

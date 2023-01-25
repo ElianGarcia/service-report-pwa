@@ -1,27 +1,31 @@
-<mat-toolbar class="footer col-8 d-flex">
+<mat-toolbar class="footer col-10 d-flex">
     <div class="card border-0">
         <div class="card-header">
             <ul class="nav nav-tabs justify-content-center" role="tablist">
-                <li class="nav-item">
-                    <a class="nav-link" [ngClass]="{active: home()}" data-toggle="tab" href="javascript:void(0)" role="tab" [routerLink]="['/app']" routerLinkActive="router-link-active">
+                <li class="nav-item" [routerLink]="['/app']" routerLinkActive="router-link-active">
+                    <mat-icon>home</mat-icon>
+                    <a class="nav-link" [ngClass]="{active: home()}" data-toggle="tab" href="javascript:void(0)" role="tab">
                         Home
                     </a>
                 </li>
 
-                <li class="nav-item">
-                    <a class="nav-link" [ngClass]="{active: students()}" data-toggle="tab" href="javascript:void(0)" role="tab" [routerLink]="['/app/students']" routerLinkActive="router-link-active">
+                <li class="nav-item" [routerLink]="['/app/students']" routerLinkActive="router-link-active">
+                    <mat-icon>account_circle</mat-icon>
+                    <a class="nav-link" [ngClass]="{active: students()}" data-toggle="tab" href="javascript:void(0)" role="tab">
                         Students
                     </a>
                 </li>
 
-                <li class="nav-item">
-                    <a class="nav-link" [ngClass]="{active: goals()}" data-toggle="tab" href="javascript:void(0)" role="tab" [routerLink]="['/app/goals']" routerLinkActive="router-link-active">
+                <li class="nav-item" [routerLink]="['/app/goals']" routerLinkActive="router-link-active">
+                    <mat-icon>stars</mat-icon>
+                    <a class="nav-link" [ngClass]="{active: goals()}" data-toggle="tab" href="javascript:void(0)" role="tab">
                         Goals
                     </a>
                 </li>
                 
-                <li class="nav-item">
-                    <a class="nav-link" [ngClass]="{active: progress()}" data-toggle="tab" href="javascript:void(0)" role="tab" [routerLink]="['/app/progress']" routerLinkActive="router-link-active">
+                <li class="nav-item"  [routerLink]="['/app/progress']" routerLinkActive="router-link-active">
+                    <mat-icon>timeline</mat-icon>
+                    <a class="nav-link" [ngClass]="{active: progress()}" data-toggle="tab" href="javascript:void(0)" role="tab">
                         Progress
                     </a>
                 </li>
