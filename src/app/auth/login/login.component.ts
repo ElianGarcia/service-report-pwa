@@ -36,7 +36,6 @@ export class LoginComponent implements OnInit {
     }
 
     this.userService.login(this.mainForm.value).subscribe(data => {
-      console.log(data);
       const token = (<any>data).token;
       const user = (<any>data).user;
       localStorage.setItem("jwt", token);

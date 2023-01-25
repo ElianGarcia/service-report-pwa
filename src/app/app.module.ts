@@ -7,10 +7,12 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AuthGuard } from './guards/auth.guard';
 import { JwtModule } from '@auth0/angular-jwt';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { ModalComponent } from './services/modal/modal.component';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { SharedComponentsModule } from './shared-components/shared-components.module';
+import { LoadingInterceptor } from './interceptors/interceptor.interceptor';
+import { LoadingService } from './services/loading.service';
 
 //function is use to get jwt token from local storage
 export function tokenGetter() {
@@ -46,6 +48,12 @@ export function tokenGetter() {
       provide: MAT_DIALOG_DATA, 
       useValue: {} 
     },
+    LoadingService,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: LoadingInterceptor,
+      multi: true
+    }
   ],
   bootstrap: [
     AppComponent
