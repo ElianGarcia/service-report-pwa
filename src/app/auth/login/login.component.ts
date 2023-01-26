@@ -18,8 +18,8 @@ export class LoginComponent implements OnInit {
 
   ngOnInit() {
     this.mainForm = this.fb.group({
-      username: ['eligarcia', [Validators.required]],
-      password: ['123456', [Validators.required]]
+      username: ['', [Validators.required]],
+      password: ['', [Validators.required]]
     })
 
     if(this.userService.isUserAuthenticated()) {

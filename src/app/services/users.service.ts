@@ -49,7 +49,7 @@ export class UsersService {
   }
   
   sendRecoveryMail(mail: string): Observable<number> {
-    return this.httpClient.post<any>(EndPoints.RECOVERY_PASSWORD, mail);
+    return this.httpClient.get<any>(EndPoints.RECOVERY_PASSWORD + mail);
   }
   
 }
