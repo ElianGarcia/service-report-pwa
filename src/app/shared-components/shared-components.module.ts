@@ -22,6 +22,7 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
+import { InputGroupComponent } from './input-group/input-group.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { MatNativeDateModule } from '@angular/material/core';
     FooterComponent,
     NotFoundComponent,
     NoDataFoundComponent,
-    AboutComponent
+    AboutComponent,
+    InputGroupComponent
   ],
   imports: [
     CommonModule,
@@ -56,6 +58,7 @@ import { MatNativeDateModule } from '@angular/material/core';
     FooterComponent,
     NotFoundComponent,
     NoDataFoundComponent,
+    InputGroupComponent,
     MatToolbarModule,
     MatIconModule,
     MatCardModule,

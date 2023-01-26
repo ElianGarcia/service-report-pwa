@@ -1,3 +1,4 @@
+import { formatDate } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Activity } from '../models/activity';
@@ -25,7 +26,13 @@ export class TabsComponent implements OnInit {
 
   editPastDate($event) {
     this.activity.date = $event;
-    this.save();
+
+    var date = new Date(this.activity.date).toISOString();
+
+    this.dailyActivity.getPastActivity(date).subscribe(res => {
+      this.activity = res;
+      console.log(res)
+    })
   }
 
   getData() {
@@ -36,10 +43,6 @@ export class TabsComponent implements OnInit {
 
   getDate() : Date {
     return this.activity.date;
-  }
-
-  ionViewWillEnter () {
-      this.getData();
   }
 
   receiveData($event) {
@@ -105,3 +108,4 @@ export class TabsComponent implements OnInit {
   }
 
 }
+

@@ -5,6 +5,7 @@
 export const environment = {
   production: false,
   version: '1.0.0',
+  //api: 'http://localhost:7000/api/'
   api: 'https://www.report-api.somee.com/api/'
 };
 

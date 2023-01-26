@@ -2,16 +2,24 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Activity } from '../models/activity';
 import { EndPoints } from '../models/static-values';
-import { ModalService } from './modal.service';
+import { UsersService } from './users.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class DailyActivityService {
-  constructor(private httpClient : HttpClient, private modal : ModalService) { }
+  constructor(private httpClient : HttpClient, private userService : UsersService) { }
+
+  get userId () {
+    return this.userService.getUser().userId;
+  }
     
   public getActivity() : any {
-    return this.httpClient.get<Activity>(EndPoints.GETACTIVITIES + 1);
+    return this.httpClient.get<Activity>(EndPoints.GETACTIVITIES + this.userId);
+  };
+  
+  public getPastActivity(date : string) : any {
+    return this.httpClient.get<Activity>(EndPoints.GETPASTACTIVITY + this.userId + '/' + date);
   };
 
   //Inset row in the table

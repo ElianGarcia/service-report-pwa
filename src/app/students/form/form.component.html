@@ -1,4 +1,4 @@
-<app-header [title]="'Editar Estudiante'">
+<app-header [title]="mode + ' Estudiante'">
 </app-header>
 
 <div class="container col-md-8">
@@ -87,12 +87,12 @@
             </form>
 
             <div class="row mt-2 d-flex justify-content-between">
-                <div class="col">
+                <div class="col" align="start">
                     <a href="javascript:void(0)" class="btn btn-outline-dark" [routerLink]="['/app/students']" routerLinkActive="router-link-active" >
                         Cancelar</a>
                 </div>
 
-                <div class="col ">
+                <div class="col" align="end">
                     <a href="javascript:void(0)" type="submit" class="btn btn-dark" (click)="submitForm()">
                         Guardar</a>
                 </div>
@@ -100,3 +100,5 @@
         </div>
     </div>
 </div>
+
+<app-footer></app-footer>

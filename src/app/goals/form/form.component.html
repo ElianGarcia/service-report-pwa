@@ -1,1 +1,37 @@
-<p>form works!</p>
+<app-header [title]="'Edit Goals'">
+</app-header>
+
+<div class="container col-md-8 pb-5">
+    <div class="row justify-content-center pt-3">
+        <hr>
+        <p class="pb-2 text-center">Here you can adjust your monthly goals, which will be reflected in the <a [routerLink]="['/app/progress']" routerLinkActive="router-link-active" >Progress</a> tab.</p>
+        <hr>
+
+        <app-input-group 
+            title="Hours"
+            [value]="goal?.hours"
+            [max]="125"
+            (valueChange)="receiveData($event)">
+        </app-input-group>
+
+        <app-input-group 
+            title="Placements" 
+            [value]="goal?.placements" 
+            (valueChange)="receiveData($event)">
+        </app-input-group>
+
+        <app-input-group  
+            title="Videos" 
+            [value]="goal?.videos" 
+            (valueChange)="receiveData($event)">
+        </app-input-group>
+
+        <app-input-group 
+            title="Return Visits" 
+            [value]="goal?.returnVisits" 
+            (valueChange)="receiveData($event)">
+        </app-input-group>
+    </div>
+</div>
+
+<app-footer></app-footer>

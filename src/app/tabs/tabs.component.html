@@ -14,29 +14,30 @@
 
 <div class="container col-md-8 pb-5">
     <div class="row justify-content-center">
-        <app-input-group 
-      title="Hours" 
-      [value]="activity.hours"
-      (valueChange)="receiveData($event)">
-    </app-input-group>
+      <app-input-group 
+        title="Hours" 
+        [value]="activity.hours"
+        [max]="125"
+        (valueChange)="receiveData($event)">
+      </app-input-group>
 
-    <app-input-group 
-      title="Placements" 
-      [value]="activity.placements"
-      (valueChange)="receiveData($event)">
-    </app-input-group>
+      <app-input-group 
+        title="Placements" 
+        [value]="activity.placements"
+        (valueChange)="receiveData($event)">
+      </app-input-group>
 
-    <app-input-group 
-      title="Videos" 
-      [value]="activity.videos"
-      (valueChange)="receiveData($event)">
-    </app-input-group>
-    
-    <app-input-group 
-      title="Revisitas" 
-      [value]="activity.videos"
-      (valueChange)="receiveData($event)">
-    </app-input-group>
+      <app-input-group 
+        title="Videos" 
+        [value]="activity.videos"
+        (valueChange)="receiveData($event)">
+      </app-input-group>
+      
+      <app-input-group 
+        title="Revisitas" 
+        [value]="activity.returnVisits"
+        (valueChange)="receiveData($event)">
+      </app-input-group>
     </div>
 </div>
 

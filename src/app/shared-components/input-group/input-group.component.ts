@@ -8,6 +8,8 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 export class InputGroupComponent implements OnInit {
   @Input() title: string;
   @Input() value: number;
+  @Input() min: number = 0;
+  @Input() max: number = 125;
   @Output() valueChange = new EventEmitter();
 
   constructor() { }

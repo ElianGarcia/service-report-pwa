@@ -18,6 +18,7 @@ export class FormComponent implements OnInit {
   isSubmitted: boolean = false;
   placements: Placement[] = [];
   student: Student;
+  mode : string = 'Create';
 
   days = [
     { id: 1, name: 'Monday' },
@@ -43,6 +44,7 @@ export class FormComponent implements OnInit {
 
       this.studentsService.getStudents().subscribe(students => {
         this.student = students.find(x => x.studentId == id);
+        this.mode = this.student ? 'Edit' : 'Create';
 
         if (this.student) {
           this.mainForm.patchValue(this.student);
