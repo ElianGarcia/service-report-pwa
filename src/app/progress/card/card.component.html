@@ -1,17 +1,23 @@
 <mat-card class="example-card justify-content-center mt-2">
-  <mat-card-header class="justify-content-center">
+  <mat-card-header>
     <mat-card-title>{{getMonth()}}</mat-card-title>
+    <div>
+      <a href="https://web.whatsapp.com/send?text={{getMessage()}}"><mat-icon>share</mat-icon></a>
+    </div>
   </mat-card-header>
+
   <mat-card-content>
     <br />
     <table style="width:100%" class="justify-content-center">
       <tr>
-        <th>Horas</th>
-        <th>Publicaciones</th>
+        <th>Hours</th>
+        <th>Placements</th>
         <th>Videos</th>
-        <th>Revisitas</th>
+        <th>Return Visits</th>
       </tr>
+
       <br />
+
       <tr>
         <td>{{hoursCount}}</td>
         <td>{{placementsCount}}</td>

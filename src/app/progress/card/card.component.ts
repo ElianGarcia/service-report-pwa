@@ -18,6 +18,16 @@ export class CardComponent implements OnInit {
 
   ngOnInit() { }
 
+  getMessage(): string {
+    let message = `This is my field service report for the month of ${this.getMonth()} \n`;
+    message += `*Hours:* ${this.hoursCount} \n`;
+    message += `*Publications:* ${this.placementsCount} \n`;
+    message += `*Videos:* ${this.videosCount} \n`;
+    message += `*Return Visits:* ${this.returnVisitsCount}`;
+    
+    return message;
+  }
+
   getMonth(): string {
     return this.data.month ? Months[this.data.month - 1] : '';
   }

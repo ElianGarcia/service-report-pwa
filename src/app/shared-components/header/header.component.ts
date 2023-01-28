@@ -9,8 +9,13 @@ import { UsersService } from 'src/app/services/users.service';
 export class HeaderComponent implements OnInit {
   @Input() title: string = '';
   @Input() showEditGoal: boolean = false;
+  @Input() showMenu: boolean = true;
   @Input() showAddStudent: boolean = false;
   @Input() showCalendar: boolean = false;
+
+  @Input() showBackButton: boolean = false;
+  @Input() backRoute: string = '/app/home';
+  
   @Output() editingDate = new EventEmitter();
 
   maxDate = new Date();

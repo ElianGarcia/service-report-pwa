@@ -21,13 +21,24 @@ export class PasswordForgotComponent implements OnInit {
     })
   }
 
+  public getError(controlName: string): string {
+    if (this.mainForm.get(controlName) != null) {
+      if (this.mainForm.get(controlName).hasError('required')) {
+        return `El campo ${controlName} es obligatorio.`;
+      } else if (this.mainForm.get(controlName).hasError('email')) {
+        return `El campo ${controlName} debe ser un email válido.`;
+      }
+    }
+    return '';
+  }
+
   sendMail() {
     if (!this.mainForm.valid) {
       this.modal.showMessage('Please fill all the fields!');
       return;
     }
 
-    this.userService.sendRecoveryMail(this.mainForm.value).subscribe(data => {
+    this.userService.sendRecoveryMail(this.mainForm.get('mail').value).subscribe(data => {
       console.log(data);
       this.modal.showMessage('Email sent successfully!');
       this.router.navigate(["/login"]);

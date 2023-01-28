@@ -17,3 +17,9 @@ table, th, td {
   text-align: center;
   font-size: large;
 }
+
+::ng-deep .mat-card-header-text {
+  margin: 0 16px;
+  text-align: center;
+  width: 97%;
+}

@@ -15,10 +15,9 @@ import { UsersService } from 'src/app/services/users.service';
 })
 export class FormComponent implements OnInit {
   public mainForm: FormGroup;
-  isSubmitted: boolean = false;
   placements: Placement[] = [];
   student: Student;
-  mode : string = 'Create';
+  mode: string = 'Create';
 
   days = [
     { id: 1, name: 'Monday' },
@@ -55,7 +54,7 @@ export class FormComponent implements OnInit {
 
   ngOnInit() {
     this.mainForm = this.formBuilder.group({
-      studentId: ['', Validators.required],
+      studentId: [0, Validators.required],
       name: ['', Validators.required],
       phone: ['', [Validators.required, Validators.minLength(10)]],
       placementId: ['', Validators.required],
@@ -70,8 +69,8 @@ export class FormComponent implements OnInit {
       userId: this.userService.getUser().userId,
     })
 
-    this.placementsService.getPlacements().subscribe(data => {
-      this.placements = data;
+    this.placementsService.getPlacements().subscribe({
+      next: (res) => this.placements = res
     })
   }
 
@@ -96,31 +95,32 @@ export class FormComponent implements OnInit {
   }
 
   submitForm() {
-    this.isSubmitted = true;
-
     if (!this.mainForm.valid) {
       this.modalService.showMessage('Please fill all the required fields!');
       return;
     }
 
     if (this.student) {
-      this.studentsService.update(this.mainForm.value).subscribe(data => {
-        if (data > 0) {
-          this.modalService.showMessage('Student updated successfully');
+      this.studentsService.update(this.mainForm.value).subscribe({
+        next: data => {
+          if (data > 0)
+            this.modalService.showMessage('Student updated!');
           this.router.navigate(['/students']);
+        }, 
+        error: (error) => {
+          this.modalService.showMessage('An error occured while updating the student!')
         }
-      }, error => {
-        this.modalService.showMessage('Error updating student');
-      })
+      });
     }
     else {
-      this.studentsService.save(this.mainForm.value).subscribe(data => {
-        if (data > 0)
-          this.modalService.showMessage('Student saved!');
-      }, error => {
-        this.modalService.showMessage('An error occured while saving the student!')
-      }, () => {
-        this.router.navigate(['/students']);
+      this.studentsService.save(this.mainForm.value).subscribe({
+        next: data => {
+          if (data > 0)
+            this.modalService.showMessage('Student saved!');
+          this.router.navigate(['/students']);
+        }, error: (error) => {
+          this.modalService.showMessage('An error occured while saving the student!')
+        }
       })
     }
   }
