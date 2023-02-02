@@ -2,7 +2,7 @@
 </app-header>
 
 <div class="container col-md-8 pb-5">
-    <div class="row justify-content-center pt-3">
+    <div class="row justify-content-center pt-3 pb-5">
         <hr>
         <p class="pb-2 text-center">Here you can adjust your monthly goals, which will be reflected in the <a [routerLink]="['/app/progress']" routerLinkActive="router-link-active" >Progress</a> tab.</p>
         <hr>
@@ -10,7 +10,7 @@
         <app-input-group 
             title="Hours"
             [value]="goal?.hours"
-            [max]="125"
+            [max]="140"
             (valueChange)="receiveData($event)">
         </app-input-group>
 

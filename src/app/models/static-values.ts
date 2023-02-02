@@ -6,7 +6,7 @@ export const HEADERS = new HttpHeaders({
   });
 
 export const EndPoints = {
-    GETSTUDENT: `${environment.api}students/GetStudent/`,
+    GETSTUDENT: `${environment.api}students/`,
     GETSTUDENTS: `${environment.api}students/`,
     SAVESTUDENT: `${environment.api}students/`,
     VISITSTUDENT: `${environment.api}students/visit/`,

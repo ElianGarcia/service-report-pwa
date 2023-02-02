@@ -32,6 +32,7 @@ export class InputGroupComponent implements OnInit {
       value: this.value
     }
 
+    console.log(obj)
     this.valueChange.emit(obj);
   }
 }

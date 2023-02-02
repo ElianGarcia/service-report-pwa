@@ -11,18 +11,13 @@ export class AuthGuard implements CanActivate {
     private modal: ModalService) { }
   
   canActivate() {
-    //get the jwt token which are present in the local storage
     const token = localStorage.getItem("jwt");
 
-    //Check if the token is expired or not and if token is expired then redirect to login page and return false
     if (token && !this.jwtHelper.isTokenExpired(token)){
-      console.log("Token is not expired");
       return true;
     }
 
     this.router.navigate(["auth/login"]);
-    this.modal.showMessage("You are not authorized to access this page!");
-    console.log("Token is expired");
     return false;
   }
   

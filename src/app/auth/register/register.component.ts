@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Congregation } from 'src/app/models/congregation';
 import { Country } from 'src/app/models/country';
+import { User } from 'src/app/models/user';
 import { CongregationsService } from 'src/app/services/congregations.service';
 import { CountriesService } from 'src/app/services/countries.service';
 import { ModalService } from 'src/app/services/modal.service';
@@ -68,11 +69,30 @@ export class RegisterComponent implements OnInit {
     return '';
   }
 
+  userExists() : boolean {
+    this.userService.login(this.mainForm.value).subscribe(data => { 
+      if(data) 
+        return true;
+      else
+        return false;
+    }, error => {
+      console.log(error);
+      return false;
+    });
+
+    return false;
+  }
+
   register() {
     this.invalidLogin = false;
 
     if (!this.mainForm.valid) {
       this.modal.showMessage('Please fill all the fields!');
+      return;
+    }
+
+    if(this.userExists()) {
+      this.modal.showMessage('El usuario ya existe!');
       return;
     }
 

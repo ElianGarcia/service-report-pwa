@@ -27,6 +27,17 @@ export class LoginComponent implements OnInit {
     }
   }
 
+  public getError(controlName: string): string {
+    if (this.mainForm.get(controlName) != null) {
+      if (this.mainForm.get(controlName).hasError('required')) {
+        return `The ${controlName} field is mandatory.`;
+      }
+    }
+
+    return '';
+  }
+
+
   login() {
     this.invalidLogin = false;
 

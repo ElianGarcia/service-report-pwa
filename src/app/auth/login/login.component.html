@@ -17,7 +17,7 @@
                         <mat-icon>close</mat-icon>
                     </button>
                     <mat-error>
-                        {{mainForm.get('username').errors}}
+                        {{getError('username')}}
                     </mat-error>
                 </mat-form-field>
 
@@ -29,7 +29,7 @@
                         <mat-icon>close</mat-icon>
                     </button>
                     <mat-error>
-                        {{mainForm.get('password').errors}}
+                        {{getError('password')}}
                     </mat-error>
                 </mat-form-field>
 
@@ -42,9 +42,12 @@
                 </div>
 
                 <span class="row justify-content-around">
-                    <a [routerLink]="['/auth/forgot-password']" 
+                    <!-- <a [routerLink]="['/auth/forgot-password']" 
                         routerLinkActive="router-link-active"  
                         href="javascript:void(0)" 
+                        class="text-start col-5">Forgot Password?</a> -->
+
+                    <a href="mailto:eliangarciarguez@gmail.com?subject=password%20reset&body=I%20would%20like%20to%20reset%20my%20password." 
                         class="text-start col-5">Forgot Password?</a>
 
                     <a [routerLink]="['/auth/register']" 

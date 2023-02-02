@@ -64,6 +64,7 @@ import { InputGroupComponent } from './input-group/input-group.component';
     MatCardModule,
     MatMenuModule,
     MatCardModule,
+    MatDatepickerModule,
     MatListModule,
     MatInputModule,
     MatTabsModule,

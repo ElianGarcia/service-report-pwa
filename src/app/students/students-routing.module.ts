@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { FormComponent } from './form/form.component';
+import { ReturnVisitFormComponent } from './return-visit-form/return-visit-form.component';
+import { ReturnVisitsListComponent } from './return-visits-list/return-visits-list.component';
 import { StudentsComponent } from './students.component';
 
 const routes: Routes = [
@@ -15,6 +17,14 @@ const routes: Routes = [
   {
     path: 'form/:id',
     component: FormComponent
+  },
+  {
+    path: 'return-visit-form/:student',
+    component: ReturnVisitFormComponent
+  },
+  {
+    path: 'return-visits/history/:id',
+    component: ReturnVisitsListComponent
   }
 ];
 

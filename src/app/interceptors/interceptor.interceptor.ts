@@ -8,6 +8,7 @@ import {
 } from '@angular/common/http';
 import { finalize, Observable } from 'rxjs';
 import { LoadingService } from '../services/loading.service';
+import { EndPoints } from '../models/static-values';
 
 @Injectable()
 export class LoadingInterceptor implements HttpInterceptor {
@@ -24,7 +25,11 @@ private totalRequests = 0;
 
     intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
       this.totalRequests++;
-      this.loadingService.isLoading.next(true);
+
+      if(!request.url.includes(EndPoints.SAVEACTIVITY) || !request.url.includes(EndPoints.UPDATEGOAL)){
+        this.loadingService.isLoading.next(true);
+      }
+
       return next.handle(request).pipe(
         finalize(() => {
           this.totalRequests--;

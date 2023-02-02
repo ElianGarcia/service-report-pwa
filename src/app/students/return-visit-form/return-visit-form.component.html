@@ -1,0 +1,57 @@
+<app-header [title]="'Return Visit Form'">
+</app-header>
+
+<div class="container col-md-8 col-xl-8 pb-5">
+    <div class="row justify-content-center">
+        <div class="col-12 pb-5">
+            <hr>
+            <p class="pb-2 text-center">
+                You are registering a return visit to {{student.name}}. You can see the history of return visits to
+                {{student.name}} by clicking
+                <a [routerLink]="['/app/students/return-visits/history/', student.studentId]"
+                    routerLinkActive="router-link-active">here</a>.
+            </p>
+            <hr>
+
+            <form [formGroup]="mainForm">
+                <div class="row justify-content-center">
+                    <mat-form-field class="col-xl-12 col-md-12">
+                        <mat-label>Date</mat-label>
+                        <input matInput type="date" [matDatepicker]="picker" formControlName="date">
+                        
+                        <mat-datepicker #picker></mat-datepicker>
+                        
+                        <mat-error>
+                            {{getError('date')}}
+                        </mat-error>
+                    </mat-form-field>
+
+                    <mat-form-field class="col-xl-12 col-md-12 col-sm-12">
+                        <mat-label>Notes</mat-label>
+                        <input matInput type="textarea" formControlName="notes">
+                        
+                        <mat-error>
+                            {{getError('notes')}}
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+
+                <div class="row justify-content-between">
+                    <div class="col" align="start">
+                        <a href="javascript:void(0)" class="btn btn-outline-dark" [routerLink]="['/app/students']"
+                            routerLinkActive="router-link-active">
+                            Cancelar</a>
+                    </div>
+
+                    <div class="col" align="end">
+                        <a href="javascript:void(0)" type="submit" class="btn btn-dark" (click)="submitForm()">
+                            Guardar</a>
+                    </div>
+                </div>
+            </form>
+
+        </div>
+    </div>
+</div>
+
+<app-footer></app-footer>

@@ -56,7 +56,7 @@ export class FormComponent implements OnInit {
     this.mainForm = this.formBuilder.group({
       studentId: [0, Validators.required],
       name: ['', Validators.required],
-      phone: ['', [Validators.required, Validators.minLength(10)]],
+      phone: [''],
       placementId: ['', Validators.required],
       address: ['', Validators.required],
       active: [true, Validators.required],

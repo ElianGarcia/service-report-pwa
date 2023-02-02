@@ -58,7 +58,7 @@ export class FormComponent implements OnInit {
   save() {
     this.mainForm = this.fb.group({
       goalId: [this.goal.goalId, []],
-      hours: [this.goal.hours, [Validators.required, Validators.max(125)]],
+      hours: [this.goal.hours, [Validators.required, Validators.max(150)]],
       placements: [this.goal.placements, [Validators.required]],
       videos: [this.goal.videos, [Validators.required]],
       returnVisits: [this.goal.returnVisits, [Validators.required]],
@@ -66,27 +66,28 @@ export class FormComponent implements OnInit {
     })
 
     if (!this.mainForm.valid) {
-      this.modalService.showMessage('Please fill all the fields!');
+      if(this.mainForm.controls['hours'].invalid){
+          this.modalService.showMessage('Hours must be between 0 and 150!');
+          this.goal.hours = 0;
+          return;
+      }
+      else
+        this.modalService.showMessage('Please fill all the fields!');
       return;
     }
 
     if (this.goal.goalId) {
       this.goalService.update(this.mainForm.value).subscribe(res => {
-        this.modalService.showMessage('Goal updated successfully!');
-        this.goBack();
+        //this.modalService.showMessage('Goal updated successfully!');
+        //this.goBack();
       })
     }
     else {
-      this.goalService.save(this.mainForm.value).subscribe(data => {
-        if (data > 0) {
-          this.modalService.showMessage('Goals saved!');
-          this.goBack();
-        }
-      }, error =>
-        this.modalService.showMessage('An error occured while saving the student!')
-        , () =>
-        this.goBack()
-      )
+      this.goalService.save(this.mainForm.value).subscribe({
+        next: data => {
+        
+      }
+    })
     }
   }
 }

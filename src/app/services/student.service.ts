@@ -27,7 +27,7 @@ export class StudentService {
   };
   
   public getStudent(id : number): any {
-    return this.httpClient.get<Student>(EndPoints.GETSTUDENT + id + '/2');
+    return this.httpClient.get<Student>(EndPoints.GETSTUDENT + id+ '/' + this.userId);
   };
 
   //Inset row in the table

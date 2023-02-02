@@ -1,8 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { MatDialog, MatDialogConfig, MatDialogRef } from '@angular/material/dialog';
+import { Router } from '@angular/router';
 import { Student } from 'src/app/models/student';
 import { ModalService } from 'src/app/services/modal.service';
-import { ModalComponent } from 'src/app/services/modal/modal.component';
 import { StudentService } from 'src/app/services/student.service';
 
 @Component({
@@ -14,12 +13,16 @@ export class CardComponent implements OnInit {
   @Input() student: Student = new Student();
 
   constructor(private studentService: StudentService,
-    private modalService: ModalService) {
+    private modalService: ModalService, private router: Router) {
 
   }
 
   ngOnInit(): void {
 
+  }
+
+  registerReturnVisit () {
+    this.router.navigate(['/app/students/return-visit-form', JSON.stringify(this.student)]);
   }
 
   delete() {
@@ -29,8 +32,6 @@ export class CardComponent implements OnInit {
       if (!value) {
         return;
       }
-
-      
 
       this.studentService.delete(this.student.studentId).subscribe((res) => {
         console.log(res);
