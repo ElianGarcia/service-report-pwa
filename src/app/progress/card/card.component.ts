@@ -32,6 +32,15 @@ export class CardComponent implements OnInit {
     return this.data.month ? Months[this.data.month - 1] : '';
   }
 
+  getLink(): string {
+    if (navigator.platform.indexOf("Win") != -1) {
+      return `https://web.whatsapp.com/send?text=${this.getMessage()}`;
+    }
+    else {
+      return `whatsapp://send?text=${this.getMessage()}`;
+    }
+  }
+
   hoursCountStop: any = setInterval(() => {
     if (this.data.hours != 0) {
       this.hoursCount++;
