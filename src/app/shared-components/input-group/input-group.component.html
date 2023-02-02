@@ -17,7 +17,7 @@
             [(ngModel)]="value"
             (ngModelChange)="onChange()" />
   
-          <button class="btn btn-sucess rounded btn-outline-dark btn-lg col" (click)="sum()" [disabled]="value >= 23">
+          <button class="btn btn-sucess rounded btn-outline-dark btn-lg col" (click)="sum()" [disabled]="value >= max">
             <mat-icon>add</mat-icon>
           </button>
         </div>
