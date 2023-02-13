@@ -1,6 +1,6 @@
 {
-  "name": "service-report-pwa",
-  "short_name": "service-report-pwa",
+  "name": "Service Report App",
+  "short_name": "Service Report",
   "theme_color": "#1976d2",
   "background_color": "#fafafa",
   "display": "standalone",
