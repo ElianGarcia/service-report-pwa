@@ -61,6 +61,9 @@ export class LoginComponent implements OnInit {
       if(error.status = 401) {
         this.invalidLogin = true;
       }
+      else {
+        this.modal.showMessage('An error has occured. Please try again later. ' + error);
+      }
     })
   }
 }

@@ -1,23 +1,24 @@
 <div class="row">
     <div class="col">
       <span color="primary" class="text-center">
-        <h2>{{title}}</h2>
+        <h2><label for="value">{{title}}</label></h2>
       </span>
   
       <div class="xc">
         <div class="row w-100">
-          <button class="btn btn-lg rounded btn-outline-dark col" (click)="subs()" [disabled]="value <= 0">
+          <button aria-label="Remove" class="btn btn-lg rounded btn-outline-dark col" (click)="subs()" [disabled]="value <= 0">
             <mat-icon>remove</mat-icon>
           </button>
   
           <input class="col" type="number" 
+            id="value"
             [min]="min" 
             [max]="max"
             [value]="value" 
             [(ngModel)]="value"
             (ngModelChange)="onChange()" />
   
-          <button class="btn btn-sucess rounded btn-outline-dark btn-lg col" (click)="sum()" [disabled]="value >= max">
+          <button aria-label="Add" class="btn btn-sucess rounded btn-outline-dark btn-lg col" (click)="sum()" [disabled]="value >= max">
             <mat-icon>add</mat-icon>
           </button>
         </div>
