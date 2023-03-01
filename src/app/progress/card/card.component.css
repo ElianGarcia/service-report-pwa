@@ -24,6 +24,10 @@ table, th, td {
   width: 97%;
 }
 
+mat-card {
+  background-color: #f1efd5;
+}
+
 @media (max-width: 600px) {
   th {
     font-size: medium;

@@ -1,7 +1,7 @@
 {
   "name": "Service Report",
   "short_name": "Service Report",
-  "theme_color": "#91989e",
+  "theme_color": "#91989e", 
   "background_color": "#fafafa",
   "display": "standalone",
   "scope": "./",

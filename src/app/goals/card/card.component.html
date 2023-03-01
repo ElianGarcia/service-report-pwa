@@ -1,31 +1,33 @@
-<div class="card mt-2">
-    <br/>
-      <table style="width:100%">
-        <tr>
-          <th><mat-icon>{{icon}}</mat-icon></th>
-          <th><mat-icon>timeline</mat-icon></th> 
-          <th *ngIf="!overcomed()"><mat-icon>directions_bike</mat-icon></th>
-          <th *ngIf="overcomed()"><mat-icon>military_tech</mat-icon></th>
-        </tr>
+<div class="bg">
+  <div class="card mt-2">
+    <br />
+    <table style="width:100%">
+      <tr>
+        <th><mat-icon>{{icon}}</mat-icon></th>
+        <th><mat-icon>timeline</mat-icon></th>
+        <th *ngIf="!overcomed()"><mat-icon>directions_bike</mat-icon></th>
+        <th *ngIf="overcomed()"><mat-icon>military_tech</mat-icon></th>
+      </tr>
 
-        <br/>
+      <br />
 
-        <tr>
-          <th>{{title}}</th>
-          <th>Goal</th> 
-          <th *ngIf="!overcomed()">Remaining</th>
-          <th *ngIf="overcomed()">Overcome</th>
-        </tr>
+      <tr>
+        <th>{{title}}</th>
+        <th>Goal</th>
+        <th *ngIf="!overcomed()">Remaining</th>
+        <th *ngIf="overcomed()">Overcome</th>
+      </tr>
 
-        <br/>
+      <br />
 
-        <tr>
-          <td>{{values.actual}}</td>
-          <td>{{values.goal}}</td>
-          <td *ngIf="!overcomed()">{{values.remaining}}</td>
-          <td *ngIf="overcomed()">{{values.remaining * -1}}</td>
-        </tr>
+      <tr>
+        <td>{{values.actual}}</td>
+        <td>{{values.goal}}</td>
+        <td *ngIf="!overcomed()">{{values.remaining}}</td>
+        <td *ngIf="overcomed()">{{values.remaining * -1}}</td>
+      </tr>
 
-        <br>
-      </table>
+      <br>
+    </table>
   </div>
+</div>

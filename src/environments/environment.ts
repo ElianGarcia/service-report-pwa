@@ -5,8 +5,8 @@
 export const environment = {
   production: false,
   version: '1.2.0',
-  api: 'https://localhost:7000/api/'
-  //api: 'https://www.report-api.somee.com/api/'
+  //api: 'https://localhost:7000/api/'
+  api: 'https://www.report-api.somee.com/api/'
 };
 
 /*

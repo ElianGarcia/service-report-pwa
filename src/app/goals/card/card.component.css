@@ -7,6 +7,11 @@ td {
   font-size: large;
 }
 
+.card {
+  background-color: #f1efd5;
+}
+
 th {
   width: 33%;
 }
+
