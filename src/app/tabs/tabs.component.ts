@@ -1,4 +1,3 @@
-import { formatDate } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Activity } from '../models/activity';
@@ -73,11 +72,11 @@ receiveData($event) {
 
 save() {
   this.mainForm = this.fb.group({
-    activityId: [this.activity.activityId, []],
+    activityId: [this.activity.activityId || 0, []],
     hours: [this.activity.hours, [Validators.required]],
     placements: [this.activity.placements, [Validators.required]],
     videos: [this.activity.videos, [Validators.required]],
-    returnVisits: [this.activity.returnVisits, [Validators.required]],
+    returnVisits: [0, [Validators.required]],
     userId: [0, [Validators.required]],
     date: [this.activity.date, [Validators.required]]
   })
@@ -91,8 +90,11 @@ save() {
     return;
   }
 
-  if (this.activity.activityId) {
+  if (this.activity.activityId != 0) {
     this.dailyActivity.update(this.mainForm.value).subscribe({
+      next: (res) => {
+        this.activity.activityId = res;
+      },
       error: (err) => {
         this.modalService.showMessage('An error occured while saving the data! ' + err.message);
         console.log(err);
@@ -101,6 +103,9 @@ save() {
   }
   else {
     this.dailyActivity.save(this.mainForm.value).subscribe({
+      next: (res) => {
+        this.activity.activityId = res;
+      },
       error: (err) => {
         this.modalService.showMessage('An error occured while saving the data! ' + err.message);
         console.log(err);

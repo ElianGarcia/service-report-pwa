@@ -8,7 +8,6 @@ export class Activity {
     userId: number;
 
     constructor() {
-        this.activityId = 0;
         this.hours = 0;
         this.placements = 0;
         this.videos = 0;

@@ -23,3 +23,9 @@ table, th, td {
   text-align: center;
   width: 97%;
 }
+
+@media (max-width: 600px) {
+  th {
+    font-size: medium;
+  }
+}

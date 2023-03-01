@@ -1,0 +1,40 @@
+.wrapper {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    align-items: center;
+    justify-content: center;
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    -o-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    text-align: center;
+  }
+  h1 {
+    color: rgb(3, 2, 2);
+    font-family: arial;
+    font-weight: bold;
+    font-size: 50px;
+    letter-spacing: 5px;
+    line-height: 1rem;
+    text-shadow: 0 0 3px rgb(0, 0, 0);
+  }
+  h4 {
+    color: #020202;
+    font-family: arial;
+    font-weight: 300;
+    font-size: 16px;
+  }
+  .button {
+    display: block;
+    margin: 20px 0 0;
+    padding: 15px 30px;
+    background: #22254C;
+    color: white;
+    font-family: arial;
+    letter-spacing: 5px;
+    border-radius: .4rem;
+    text-decoration: none;
+    box-shadow: 0 0 15px #22254C;
+  }

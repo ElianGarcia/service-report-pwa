@@ -7,7 +7,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AuthGuard } from './guards/auth.guard';
 import { JwtModule } from '@auth0/angular-jwt';
-import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS, HttpClient } from '@angular/common/http';
 import { ModalComponent } from './services/modal/modal.component';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { SharedComponentsModule } from './shared-components/shared-components.module';
@@ -15,6 +15,11 @@ import { LoadingInterceptor } from './interceptors/interceptor.interceptor';
 import { LoadingService } from './services/loading.service';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
+import { OnlineStatusModule } from 'ngx-online-status';
+
+// import ngx-translate and the http loader
+import {TranslateLoader, TranslateModule} from '@ngx-translate/core';
+import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 
 //function is use to get jwt token from local storage
 export function tokenGetter() {
@@ -32,6 +37,14 @@ export function tokenGetter() {
     BrowserAnimationsModule,
     HttpClientModule,
     SharedComponentsModule,
+    OnlineStatusModule,
+    TranslateModule.forRoot({
+      loader: {
+          provide: TranslateLoader,
+          useFactory: HttpLoaderFactory,
+          deps: [HttpClient]
+      }
+  }),
     JwtModule.forRoot({
       config: {
         tokenGetter: tokenGetter,
@@ -43,7 +56,7 @@ export function tokenGetter() {
       enabled: environment.production,
       // Register the ServiceWorker as soon as the application is stable
       // or after 6 seconds (whichever comes first).
-      registrationStrategy: 'registerWhenStable:6000'
+      registrationStrategy: 'registerWhenStable:3000'
     })
   ],
   providers: [
@@ -72,3 +85,8 @@ export function tokenGetter() {
   ]
 })
 export class AppModule { }
+
+// required for AOT compilation
+export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
+  return new TranslateHttpLoader(http);
+}

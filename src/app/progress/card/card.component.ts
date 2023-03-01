@@ -33,12 +33,7 @@ export class CardComponent implements OnInit {
   }
 
   getLink(): string {
-    if (navigator.platform.indexOf("Win") != -1) {
-      return `https://web.whatsapp.com/send?text=${this.getMessage()}`;
-    }
-    else {
-      return `whatsapp://send?text=${this.getMessage()}`;
-    }
+    return `whatsapp://send?text=${this.getMessage()}`;
   }
 
   hoursCountStop: any = setInterval(() => {

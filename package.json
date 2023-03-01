@@ -1,6 +1,6 @@
 {
   "name": "service-report-pwa",
-  "version": "0.0.0",
+  "version": "1.2.0",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
@@ -25,6 +25,9 @@
     "@angular/service-worker": "^14.0.0",
     "@auth0/angular-jwt": "^5.1.2",
     "@auth0/auth0-angular": "^1.11.1",
+    "@ngx-translate/core": "^14.0.0",
+    "@ngx-translate/http-loader": "^7.0.0",
+    "ngx-online-status": "^2.0.0",
     "rxjs": "~7.5.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.11.4"

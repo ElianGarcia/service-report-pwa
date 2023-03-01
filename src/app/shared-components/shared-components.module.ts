@@ -23,6 +23,7 @@ import { MatTabsModule } from '@angular/material/tabs';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { InputGroupComponent } from './input-group/input-group.component';
+import { OfflineComponent } from './offline/offline.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { InputGroupComponent } from './input-group/input-group.component';
     NotFoundComponent,
     NoDataFoundComponent,
     AboutComponent,
-    InputGroupComponent
+    InputGroupComponent,
+    OfflineComponent
   ],
   imports: [
     CommonModule,
@@ -73,7 +75,8 @@ import { InputGroupComponent } from './input-group/input-group.component';
     MatSlideToggleModule,
     MatSelectModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    OfflineComponent
   ]
 })
 export class SharedComponentsModule { }
