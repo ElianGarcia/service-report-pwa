@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1679957007768,
+  "timestamp": 1679957337119,
   "index": "/service-report-pwa/index.html",
   "assetGroups": [
     {
@@ -72,7 +72,7 @@
     "/service-report-pwa/favicon.ico": "22f6a4a3bcaafafb0254e0f2fa4ceb89e505e8b2",
     "/service-report-pwa/index.html": "0d65e62fefcb8ca3e520ae391698d6688522f09b",
     "/service-report-pwa/main.7448a0f1e37c9e58.js": "ab5d926d4f8cc20952f3643e73bf4943dfbf8c93",
-    "/service-report-pwa/manifest.webmanifest": "278383061382b7d88f6f2eeceb78f32db6139305",
+    "/service-report-pwa/manifest.webmanifest": "af32190fbf399824caffc1d23847466acbe50360",
     "/service-report-pwa/polyfills.3bd5f42080f24556.js": "196ea28a97244231704876f02e8fe2b12c6f734d",
     "/service-report-pwa/runtime.479f154ea2786abe.js": "1cf6b764ac6b4906b5a852e9b5b9c9f973c40aab",
     "/service-report-pwa/styles.0a5669489d0443f1.css": "3e44de0c521c7750f244aeeb7834d840a1c34240"
