@@ -13,7 +13,7 @@
                     <mat-label>Username</mat-label>
                     <input matInput type="text" formControlName="username">
                     <button *ngIf="mainForm.get('username').value" matSuffix mat-icon-button aria-label="Clear"
-                        (click)="value=''">
+                        (click)="value=''" tabindex="-1">
                         <mat-icon>close</mat-icon>
                     </button>
                     <mat-error>
@@ -23,9 +23,9 @@
 
                 <mat-form-field class="col-12 mt-2">
                     <mat-label>Password</mat-label>
-                    <input matInput type="password" formControlName="password">
+                    <input matInput type="password" formControlName="password" (keyup.enter)="login()">
                     <button *ngIf="mainForm.get('password').value" matSuffix mat-icon-button aria-label="Clear"
-                        (click)="value=''">
+                        (click)="value=''" tabindex="-1">
                         <mat-icon>close</mat-icon>
                     </button>
                     <mat-error>

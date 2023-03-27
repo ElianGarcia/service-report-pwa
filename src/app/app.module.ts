@@ -14,12 +14,12 @@ import { SharedComponentsModule } from './shared-components/shared-components.mo
 import { LoadingInterceptor } from './interceptors/interceptor.interceptor';
 import { LoadingService } from './services/loading.service';
 import { ServiceWorkerModule } from '@angular/service-worker';
-import { environment } from '../environments/environment';
 import { OnlineStatusModule } from 'ngx-online-status';
 
 // import ngx-translate and the http loader
 import {TranslateLoader, TranslateModule} from '@ngx-translate/core';
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
+import { environment } from 'src/environments/environment';
 
 //function is use to get jwt token from local storage
 export function tokenGetter() {
@@ -54,8 +54,6 @@ export function tokenGetter() {
     }),
     ServiceWorkerModule.register('ngsw-worker.js', {
       enabled: environment.production,
-      // Register the ServiceWorker as soon as the application is stable
-      // or after 6 seconds (whichever comes first).
       registrationStrategy: 'registerWhenStable:3000'
     })
   ],

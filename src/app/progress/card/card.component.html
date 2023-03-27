@@ -2,7 +2,8 @@
   <mat-card-header>
     <mat-card-title>{{getMonth()}}</mat-card-title>
     <div>
-      <a style="color: black;" [href]="getLink()"><mat-icon >share</mat-icon></a>
+      <!-- <a style="color: black;" [href]="getLink()"><mat-icon >share</mat-icon></a> -->
+      <a style="color: black;" href="javascript:void(0)" (click)="copyToClipboard()"><mat-icon>content_copy</mat-icon></a>
     </div>
   </mat-card-header>
 

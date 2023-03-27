@@ -14,9 +14,16 @@ export class CardComponent implements OnInit {
   videosCount: number = 0;
   returnVisitsCount: number = 0;
 
-  constructor() { }
+  constructor() { 
+    
+  }
 
-  ngOnInit() { }
+  ngOnInit() { 
+    this.hoursCount = this.data.hours || 0;
+    this.placementsCount = this.data.placements || 0;
+    this.videosCount = this.data.videos || 0;
+    this.returnVisitsCount = this.data.returnVisits || 0;
+  }
 
   getMessage(): string {
     let message = `This is my field service report for the month of ${this.getMonth()} \n`;
@@ -36,44 +43,54 @@ export class CardComponent implements OnInit {
     return `whatsapp://send?text=${this.getMessage()}`;
   }
 
-  hoursCountStop: any = setInterval(() => {
-    if (this.data.hours != 0) {
-      this.hoursCount++;
+  copyToClipboard() {
+    let message = `This is my field service report for the month of ${this.getMonth()} \n`;
+    message += `*Hours:* ${this.hoursCount} \n`;
+    message += `*Publications:* ${this.placementsCount} \n`;
+    message += `*Videos:* ${this.videosCount} \n`;
+    message += `*Return Visits:* ${this.returnVisitsCount}`;
 
-      if (this.hoursCount == this.data.hours) {
-        clearInterval(this.hoursCountStop);
-      }
-    }
-  }, 75);
+    navigator.clipboard.writeText(message);
+  }
 
-  placementsCountStop: any = setInterval(() => {
-    if (this.data.placements != 0) {
-      this.placementsCount++;
+  // hoursCountStop: any = setInterval(() => {
+  //   if (this.data.hours != 0) {
+  //     this.hoursCount++;
 
-      if (this.placementsCount == this.data.placements) {
-        clearInterval(this.placementsCountStop);
-      }
-    }
-  }, 75);
+  //     if (this.hoursCount == this.data.hours) {
+  //       clearInterval(this.hoursCountStop);
+  //     }
+  //   }
+  // }, 75);
 
-  returnVisitsCountStop: any = setInterval(() => {
-    if (this.data.returnVisits != 0) {
+  // placementsCountStop: any = setInterval(() => {
+  //   if (this.data.placements != 0) {
+  //     this.placementsCount++;
 
-      this.returnVisitsCount++;
+  //     if (this.placementsCount == this.data.placements) {
+  //       clearInterval(this.placementsCountStop);
+  //     }
+  //   }
+  // }, 75);
 
-      if (this.returnVisitsCount == this.data.returnVisits) {
-        clearInterval(this.returnVisitsCountStop);
-      }
-    }
-  }, 75);
+  // returnVisitsCountStop: any = setInterval(() => {
+  //   if (this.data.returnVisits != 0) {
 
-  videosCountStop: any = setInterval(() => {
-    if (this.data.videos != 0) {
-      this.videosCount++;
+  //     this.returnVisitsCount++;
 
-      if (this.videosCount == this.data.videos) {
-        clearInterval(this.videosCountStop);
-      }
-    }
-  }, 75);
+  //     if (this.returnVisitsCount == this.data.returnVisits) {
+  //       clearInterval(this.returnVisitsCountStop);
+  //     }
+  //   }
+  // }, 75);
+
+  // videosCountStop: any = setInterval(() => {
+  //   if (this.data.videos != 0) {
+  //     this.videosCount++;
+
+  //     if (this.videosCount == this.data.videos) {
+  //       clearInterval(this.videosCountStop);
+  //     }
+  //   }
+  // }, 75);
 }

@@ -51,5 +51,12 @@ export class UsersService {
   sendRecoveryMail(mail: string): Observable<number> {
     return this.httpClient.get<any>(EndPoints.RECOVERY_PASSWORD + mail);
   }
-  
+
+  setIncrementValue(value: number) {
+    localStorage.setItem("incrementValue", value.toString());
+  }
+
+  getIncrementValue() : number {
+    return localStorage.getItem("incrementValue") ? parseFloat(localStorage.getItem("incrementValue")) : 0.10;
+  }
 }

@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { UsersService } from 'src/app/services/users.service';
 
 @Component({
   selector: 'app-input-group',
@@ -12,17 +13,21 @@ export class InputGroupComponent implements OnInit {
   @Input() max: number = 125;
   @Output() valueChange = new EventEmitter();
 
-  constructor() { }
+  constructor(private userService : UsersService) { }
 
   ngOnInit() { }
 
+  get incrementValue() : number {
+    return this.userService.getIncrementValue();
+  }
+
   sum(){
-    this.value++;
+    this.value += this.incrementValue;
     this.onChange();
   }
   
   subs(){
-    this.value--;
+    this.value -= this.incrementValue;
     this.onChange();
   }
 
@@ -32,7 +37,6 @@ export class InputGroupComponent implements OnInit {
       value: this.value
     }
 
-    console.log(obj)
     this.valueChange.emit(obj);
   }
 }
