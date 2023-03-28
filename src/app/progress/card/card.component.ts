@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Months } from 'src/app/models/static-values';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-card',
@@ -14,7 +15,7 @@ export class CardComponent implements OnInit {
   videosCount: number = 0;
   returnVisitsCount: number = 0;
 
-  constructor() { 
+  constructor(private snackBar: MatSnackBar) { 
     
   }
 
@@ -28,7 +29,7 @@ export class CardComponent implements OnInit {
   getMessage(): string {
     let message = `This is my field service report for the month of ${this.getMonth()} \n`;
     message += `*Hours:* ${this.hoursCount} \n`;
-    message += `*Publications:* ${this.placementsCount} \n`;
+    message += `*Placements:* ${this.placementsCount} \n`;
     message += `*Videos:* ${this.videosCount} \n`;
     message += `*Return Visits:* ${this.returnVisitsCount}`;
     
@@ -46,11 +47,13 @@ export class CardComponent implements OnInit {
   copyToClipboard() {
     let message = `This is my field service report for the month of ${this.getMonth()} \n`;
     message += `*Hours:* ${this.hoursCount} \n`;
-    message += `*Publications:* ${this.placementsCount} \n`;
+    message += `*Placements:* ${this.placementsCount} \n`;
     message += `*Videos:* ${this.videosCount} \n`;
     message += `*Return Visits:* ${this.returnVisitsCount}`;
 
     navigator.clipboard.writeText(message);
+
+    this.snackBar.open('Copied to clipboard', 'Close', { duration: 1000 })
   }
 
   // hoursCountStop: any = setInterval(() => {

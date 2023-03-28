@@ -12,6 +12,7 @@ export class HeaderComponent implements OnInit {
   @Input() showMenu: boolean = true;
   @Input() showAddStudent: boolean = false;
   @Input() showCalendar: boolean = false;
+  @Input() showHistory: boolean = false;
 
   @Input() showBackButton: boolean = false;
   @Input() backRoute: string = '/app/home';

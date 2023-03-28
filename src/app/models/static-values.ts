@@ -24,6 +24,7 @@ export const EndPoints = {
     GETACTIVITY: `${environment.api}activity/`,
     GETACTIVITIES: `${environment.api}activity/`,
     GETPASTACTIVITY: `${environment.api}activity/`,
+    GETACTUALMONTHACTIVITY: `${environment.api}activity/actualMonth/`,
     SAVEACTIVITY: `${environment.api}activity/`,
     UPDATEACTIVITY: `${environment.api}activity/`,
     DELETEACTIVITY: `${environment.api}activity/`,

@@ -22,6 +22,10 @@ export class DailyActivityService {
     return this.httpClient.get<Activity>(EndPoints.GETPASTACTIVITY + this.userId + '/' + date);
   };
 
+  public getActualMonthActivity() : any {
+    return this.httpClient.get<Activity[]>(EndPoints.GETACTUALMONTHACTIVITY + this.userId);
+  };
+
   //Inset row in the table
   save(activity: Activity) {
     return this.httpClient.post<number>(EndPoints.SAVEACTIVITY, activity);

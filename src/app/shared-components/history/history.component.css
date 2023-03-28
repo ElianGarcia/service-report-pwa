@@ -1,0 +1,17 @@
+table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: center;
+    border-top: 1px solid #000;
+}
+
+th {
+    padding-top: 6px;
+}
+
+/* breakpoint for mobile */
+@media only screen and (max-width: 600px) {
+    th {
+        font-size: small;
+    }
+}

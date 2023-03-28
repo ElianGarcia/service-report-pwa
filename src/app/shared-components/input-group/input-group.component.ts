@@ -22,12 +22,42 @@ export class InputGroupComponent implements OnInit {
   }
 
   sum(){
-    this.value += this.incrementValue;
+    if(this.title === 'Hours'){
+      this.value += this.incrementValue;
+
+      let hour = Math.floor(this.value);
+      let minute = Math.round((this.value - hour) * 100);
+      
+      if (minute >= 60) {
+        hour += 1;
+        minute -= 60;
+      }
+
+      this.value = Number(hour + '.' + minute);
+    } else {
+      this.value += 1;
+    }    
+
     this.onChange();
-  }
+  }  
   
   subs(){
-    this.value -= this.incrementValue;
+    if(this.title === 'Hours'){
+      this.value -= this.incrementValue;
+
+      let hour = Math.floor(this.value);
+      let minute = Math.round((this.value - hour) * 100);
+      
+      if (minute < 0) {
+        hour -= 1;
+        minute += 60;
+      }
+
+      this.value = Number(hour + '.' + minute);
+    } else {
+      this.value -= 1;
+    }
+
     this.onChange();
   }
 

@@ -1,8 +1,8 @@
 {
-  "name": "Service Report",
+  "name": "Service Report App",
   "short_name": "Service Report",
   "theme_color": "#ffd740", 
-  "background_color": "#fafafa",
+  "background_color": "#ffd740",
   "display": "standalone",
   "scope": "./",
   "start_url": "./",

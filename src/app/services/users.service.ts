@@ -57,6 +57,6 @@ export class UsersService {
   }
 
   getIncrementValue() : number {
-    return localStorage.getItem("incrementValue") ? parseFloat(localStorage.getItem("incrementValue")) : 0.10;
+    return localStorage.getItem("incrementValue") ? parseFloat(localStorage.getItem("incrementValue")) : 1;
   }
 }
