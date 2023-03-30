@@ -43,13 +43,13 @@
 .nav-tabs>.nav-item>.nav-link {
     color: #888888;
     margin: 0;
-    margin-right: 5px;
+    /* margin-right: 5px; */
     background-color: transparent;
     border: 1px solid transparent;
     border-radius: 30px;
     font-size: 14px;
-    padding: 11px 23px;
-    line-height: 1.5;
+    /* padding: 6px 23px; */
+    line-height: 0.7;
 }
 
 .nav-tabs>.nav-item>.nav-link:hover {
@@ -131,7 +131,10 @@ footer{
 
 mat-icon {
     display: none;
+    color: #555;
 }
+
+
 
 @media screen and (max-width: 768px) {
     .nav-tabs {
@@ -140,22 +143,38 @@ mat-icon {
     }
 
     .nav-tabs .nav-item>.nav-link {
-        display: none;
+        display: block;
+        font-size: smaller;
     }
 
     mat-icon {
         display: inline;
-        font-size: 1.7em;
+        font-size: 1.4em;
         margin-top: auto 0 auto 0;
     }
 
+    mat-icon.active {
+        color: #000 !important;
+    }
+
     .nav-item {
-        width: 25% !important;
+        width: 24% !important;
         justify-content: center;
-        text-align: center;
+    }
+
+    .nav-tabs>.nav-item>.nav-link.active {
+        background-color: transparent;
+        border-radius: unset;
+        border-bottom: 2px solid #1b1b1b !important;
+        color: #000;
+    }
+
+    .nav-tabs:not(.nav-tabs-neutral)>.nav-item>.nav-link.active {
+        box-shadow: unset;
     }
 }
 
 .nav-link {
     font-size: 0.8em !important;
+    padding: 5px !important;
 }
