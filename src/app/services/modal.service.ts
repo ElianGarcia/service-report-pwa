@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { BehaviorSubject, Observable, of } from 'rxjs';
 import { ModalComponent } from './modal/modal.component';
 
@@ -8,15 +9,18 @@ import { ModalComponent } from './modal/modal.component';
 })
 export class ModalService {
 
-  constructor(public dialog: MatDialog) {
+  constructor(public dialog: MatDialog,
+    private snack : MatSnackBar) {
 
   }
 
   public showMessage(message : string) {
-    const dial = this.dialog.open(ModalComponent, ({
-      width: '250px',
-      data: { message: message }
-    }));
+    // const dial = this.dialog.open(ModalComponent, ({
+    //   width: '250px',
+    //   data: { message: message }
+    // }));
+
+    this.snack.open(message, 'OK', {duration: 1500});
   }
 
   public showConfirmMessage(message : string) : Observable<boolean> {

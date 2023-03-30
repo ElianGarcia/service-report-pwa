@@ -9,6 +9,14 @@ th {
     padding-top: 6px;
 }
 
+.card {
+    background-color: beige;
+    margin-top: 3%;
+    border-left: 6px solid #ccc !important;
+    background-color: beige !important;
+    border-color: #ffd740 !important;
+}
+
 /* breakpoint for mobile */
 @media only screen and (max-width: 600px) {
     th {

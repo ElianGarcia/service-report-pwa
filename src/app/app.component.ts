@@ -3,7 +3,8 @@ import { Router } from '@angular/router';
 import { OnlineStatusService, OnlineStatusType } from 'ngx-online-status';
 import { LoadingService } from './services/loading.service';
 import { TranslateService } from "@ngx-translate/core";
-import { SwUpdate } from '@angular/service-worker';
+import { SwUpdate, VersionReadyEvent } from '@angular/service-worker';
+import { filter, map } from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -32,15 +33,22 @@ export class AppComponent {
 
   updateClient() {
     if (this.update.isEnabled) {
-      this.update.versionUpdates.subscribe(() => {
-        if (confirm("New version available. Load New Version?")) {
-          //log in the console the version that is available and the current version
-          console.log("version", this.update.available);
-          //log in the console that the update is available
-          console.log("Update available");
-          //reload the page to load the new version
-          window.location.reload();
-        }
+      this.update.versionUpdates.
+        pipe(filter((evt): evt is VersionReadyEvent => evt.type === 'VERSION_READY'),
+          map(evt => ({
+            type: 'UPDATE_AVAILABLE',
+            current: evt.currentVersion,
+            available: evt.latestVersion,
+          }))).subscribe(evt => {
+            this.promptUser();
+          });
+    }
+  }
+
+  promptUser() {
+    if (confirm('New version available. Load New Version?')) {
+      this.update.activateUpdate().then((res) => {
+        document.location.reload()
       });
     }
   }
