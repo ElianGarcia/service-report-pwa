@@ -1,6 +1,6 @@
 <mat-card class="example-card justify-content-center mt-2">
   <mat-card-header>
-    <mat-card-title>{{getMonth()}}</mat-card-title>
+    <mat-card-title>{{getMonth() | translate}}</mat-card-title>
     <div>
       <!-- <a style="color: black;" [href]="getLink()"><mat-icon >share</mat-icon></a> -->
       <a style="color: black;" href="javascript:void(0)" (click)="copyToClipboard()"><mat-icon>content_copy</mat-icon></a>
@@ -11,10 +11,10 @@
     <br />
     <table style="width:100%" class="justify-content-center">
       <tr>
-        <th>Hours</th>
-        <th>Placements</th>
-        <th>Videos</th>
-        <th>Return Visits</th>
+        <th>{{'Hours' | translate}}</th>
+        <th>{{'Placements' | translate}}</th>
+        <th>{{'Videos' | translate}}</th>
+        <th>{{'Return Visits' | translate}}</th>
       </tr>
 
       <br />

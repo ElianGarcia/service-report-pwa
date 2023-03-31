@@ -12,7 +12,7 @@ import { filter, map } from 'rxjs';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'Service Report Ap';
+  title = 'Service Report App';
 
   constructor(public loadingService: LoadingService, private translate: TranslateService,
     private update: SwUpdate, private onlineStatusService: OnlineStatusService, private router: Router) {
@@ -22,8 +22,8 @@ export class AppComponent {
       this.router.navigateByUrl('/offline');
     });
 
-    translate.setDefaultLang('en');
-    translate.use('en');
+    // translate.use(localStorage.getItem('language') || 'en');
+    // console.log('Current language: ' + translate.currentLang);
     this.updateClient();
   }
 

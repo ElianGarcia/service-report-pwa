@@ -4,7 +4,8 @@
 <div class="container col-md-8 pb-5">
     <div class="row justify-content-center pt-3 pb-5">
         <hr>
-        <p class="pb-2 text-center">Here you can adjust your monthly goals, which will be reflected in the <a [routerLink]="['/app/progress']" routerLinkActive="router-link-active" >Progress</a> tab.</p>
+        <p class="pb-2 text-center">
+            {{'Here you can adjust your monthly goals, which will be reflected in the ' | translate}} <a [routerLink]="['/app/progress']" routerLinkActive="router-link-active" >{{'Progress tab.' | translate}}</a> </p>
         <hr>
 
         <app-input-group 

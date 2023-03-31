@@ -16,10 +16,8 @@ import { LoadingService } from './services/loading.service';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { OnlineStatusModule } from 'ngx-online-status';
 
-// import ngx-translate and the http loader
-import {TranslateLoader, TranslateModule} from '@ngx-translate/core';
-import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 import { environment } from 'src/environments/environment';
+import { NgxTranslateModule } from './translate/translate.module';
 
 //function is use to get jwt token from local storage
 export function tokenGetter() {
@@ -38,13 +36,6 @@ export function tokenGetter() {
     HttpClientModule,
     SharedComponentsModule,
     OnlineStatusModule,
-    TranslateModule.forRoot({
-      loader: {
-          provide: TranslateLoader,
-          useFactory: HttpLoaderFactory,
-          deps: [HttpClient]
-      }
-  }),
     JwtModule.forRoot({
       config: {
         tokenGetter: tokenGetter,
@@ -83,8 +74,3 @@ export function tokenGetter() {
   ]
 })
 export class AppModule { }
-
-// required for AOT compilation
-export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
-  return new TranslateHttpLoader(http);
-}

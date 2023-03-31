@@ -5,28 +5,28 @@
                 <li class="nav-item text-center" [routerLink]="['/app']" routerLinkActive="router-link-active">
                     <mat-icon [ngClass]="{active: home()}">home</mat-icon>
                     <a class="nav-link" [ngClass]="{active: home()}" data-toggle="tab" href="javascript:void(0)" role="tab">
-                        Home
+                        {{'Home' | translate}}
                     </a>
                 </li>
 
                 <li class="nav-item text-center" [routerLink]="['/app/students']" routerLinkActive="router-link-active">
                     <mat-icon [ngClass]="{active: students()}">account_circle</mat-icon>
                     <a class="nav-link" [ngClass]="{active: students()}" data-toggle="tab" href="javascript:void(0)" role="tab">
-                        Students
+                        {{'Students' | translate}}
                     </a>
                 </li>
 
                 <li class="nav-item" [routerLink]="['/app/goals']" routerLinkActive="router-link-active">
                     <mat-icon [ngClass]="{active: goals()}">stars</mat-icon>
                     <a class="nav-link" [ngClass]="{active: goals()}" data-toggle="tab" href="javascript:void(0)" role="tab">
-                        Goals
+                        {{'Goals' | translate}}
                     </a>
                 </li>
                 
                 <li class="nav-item"  [routerLink]="['/app/progress']" routerLinkActive="router-link-active">
                     <mat-icon [ngClass]="{active: progress()}">timeline</mat-icon>
                     <a class="nav-link" [ngClass]="{active: progress()}" data-toggle="tab" href="javascript:void(0)" role="tab">
-                        Progress
+                        {{'Progress' | translate}}
                     </a>
                 </li>
             </ul>

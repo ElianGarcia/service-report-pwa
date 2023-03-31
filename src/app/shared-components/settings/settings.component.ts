@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { TranslateService } from '@ngx-translate/core';
 import { UsersService } from 'src/app/services/users.service';
 
 @Component({
@@ -9,11 +10,23 @@ import { UsersService } from 'src/app/services/users.service';
 })
 export class SettingsComponent implements OnInit {
   incrementValue = 1;
+  siteLanguage = 'English';
+  language = {code: 'en', label: 'English'};
 
-  constructor(private userService : UsersService, private snack : MatSnackBar) { }
+  languageList = [
+    { code: 'en', label: 'English' },
+    { code: 'es', label: 'Spanish' },
+  ];
+
+  constructor(private userService : UsersService,
+    private snack : MatSnackBar, private translate: TranslateService) { }
 
   ngOnInit(): void {
     this.incrementValue = this.userService.getIncrementValue();
+
+    //set the language to the one saved in the service
+    this.language = localStorage.getItem('language') === 'en' 
+      ? this.languageList[0] : this.languageList[1];
   }
 
   save(){
@@ -23,5 +36,17 @@ export class SettingsComponent implements OnInit {
 
     this.userService.setIncrementValue(this.incrementValue);
     this.snack.open("Settings saved", "OK", {duration: 1000});
+  }
+
+  changeSiteLanguage(localeCode: string): void {
+    const selectedLanguage = this.languageList
+      .find((language) => language.code === localeCode)
+      ?.label.toString();
+
+    if (selectedLanguage) {
+      this.siteLanguage = selectedLanguage;
+      this.translate.use(localeCode);
+      localStorage.setItem('language', localeCode);
+    }
   }
 }

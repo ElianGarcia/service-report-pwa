@@ -5,7 +5,7 @@
             <mat-icon>keyboard_backspace</mat-icon>
         </button>
 
-        {{title}}
+        {{title | translate}}
     </span>
 
     <span class="example-spacer"></span>
@@ -51,8 +51,8 @@
     </button>
     
     <mat-menu #menu="matMenu">
-        <button mat-menu-item [routerLink]="['/app/shared/about']" routerLinkActive="router-link-active" >About</button>
-        <button mat-menu-item [routerLink]="['/app/shared/settings']" routerLinkActive="router-link-active" >Settings</button>
-        <button mat-menu-item (click)="logout()">Logout</button>
+        <button mat-menu-item [routerLink]="['/app/shared/about']" routerLinkActive="router-link-active" >{{'About' | translate}}</button>
+        <button mat-menu-item [routerLink]="['/app/shared/settings']" routerLinkActive="router-link-active" >{{'Settings' | translate}}</button>
+        <button mat-menu-item (click)="logout()">{{'Logout' | translate}}</button>
       </mat-menu>
 </mat-toolbar>

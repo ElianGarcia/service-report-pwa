@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Months } from 'src/app/models/static-values';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-card',
@@ -15,11 +16,11 @@ export class CardComponent implements OnInit {
   videosCount: number = 0;
   returnVisitsCount: number = 0;
 
-  constructor(private snackBar: MatSnackBar) { 
-    
+  constructor(private snackBar: MatSnackBar, private translate: TranslateService) {
+
   }
 
-  ngOnInit() { 
+  ngOnInit() {
     this.hoursCount = this.data.hours || 0;
     this.placementsCount = this.data.placements || 0;
     this.videosCount = this.data.videos || 0;
@@ -27,12 +28,18 @@ export class CardComponent implements OnInit {
   }
 
   getMessage(): string {
-    let message = `This is my field service report for the month of ${this.getMonth()} \n`;
-    message += `*Hours:* ${this.hoursCount} \n`;
-    message += `*Placements:* ${this.placementsCount} \n`;
-    message += `*Videos:* ${this.videosCount} \n`;
-    message += `*Return Visits:* ${this.returnVisitsCount}`;
-    
+    let message = '';
+
+    this.translate.get('fieldServiceReport').subscribe((res: string) => {
+      message = res.replace('##month', this.getMonth())
+        .replace('##hour', this.hoursCount.toString())
+        .replace('##placement', this.placementsCount.toString())
+        .replace('##video', this.videosCount.toString())
+        .replace('##visit', this.returnVisitsCount.toString());
+
+      console.log(message);
+    });
+
     return message;
   }
 
@@ -45,15 +52,36 @@ export class CardComponent implements OnInit {
   }
 
   copyToClipboard() {
-    let message = `This is my field service report for the month of ${this.getMonth()} \n`;
-    message += `*Hours:* ${this.hoursCount} \n`;
-    message += `*Placements:* ${this.placementsCount} \n`;
-    message += `*Videos:* ${this.videosCount} \n`;
-    message += `*Return Visits:* ${this.returnVisitsCount}`;
+    let message = '';
+    let month = '';
 
-    navigator.clipboard.writeText(message);
+    this.translate.get(this.getMonth()).subscribe((res: string) => {
+      month = res;
+    });
 
-    this.snackBar.open('Copied to clipboard', 'Close', { duration: 1000 })
+    this.translate.get('fieldServiceReport').subscribe((res: string) => {
+      message = res.replace('##month', month)
+        .replace('##hour', this.hoursCount.toString())
+        .replace('##placement', this.placementsCount.toString())
+        .replace('##video', this.videosCount.toString())
+        .replace('##visit', this.returnVisitsCount.toString());
+
+      navigator.clipboard.writeText(message);
+
+      console.log(message);
+    });
+
+    let title = '';
+    let button = '';
+
+    this.translate.get('Copied').subscribe((res: string) => {
+      title = res;
+
+      this.translate.get('Close').subscribe((res: string) => {
+        button = res;
+        this.snackBar.open(title, button, { duration: 1000 })
+      });
+    });
   }
 
   // hoursCountStop: any = setInterval(() => {

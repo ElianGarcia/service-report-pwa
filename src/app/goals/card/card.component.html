@@ -12,10 +12,10 @@
       <br />
 
       <tr>
-        <th>{{title}}</th>
-        <th>Goal</th>
-        <th *ngIf="!overcomed()">Remaining</th>
-        <th *ngIf="overcomed()">Overcome</th>
+        <th>{{title | translate}}</th>
+        <th>{{'Goal' | translate}}</th>
+        <th *ngIf="!overcomed()">{{'Remaining' | translate}}</th>
+        <th *ngIf="overcomed()">{{'Overcome' | translate}}</th>
       </tr>
 
       <br />

@@ -31,12 +31,12 @@
                 <div class="col col-xl-4 col-md-4 col-sm-4">
                     <a href="javascript:void(0)" class="btn d-block btn-outline-dark"
                         [routerLink]="['form/', student.studentId]" routerLinkActive="router-link-active">
-                        Editar</a>
+                        {{'Edit' | translate}}</a>
                 </div>
 
                 <div class="col col-xl-4 col-md-4 col-sm-4">
                     <a href="javascript:void(0)" class="btn d-block btn-dark" (click)="registerReturnVisit()">
-                        Revisita</a>
+                        {{'Return Visit' | translate}}</a>
                 </div>
             </div>
         </div>

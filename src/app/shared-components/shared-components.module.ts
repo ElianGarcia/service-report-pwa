@@ -27,6 +27,16 @@ import { InputGroupComponent } from './input-group/input-group.component';
 import { OfflineComponent } from './offline/offline.component';
 import { SettingsComponent } from './settings/settings.component';
 import { HistoryComponent } from './history/history.component';
+import { ProfileComponent } from './profile/profile.component';
+import { NgxTranslateModule } from '../translate/translate.module';
+import { TranslateLoader, TranslateModule, TranslateService } from '@ngx-translate/core';
+
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { HttpClient } from '@angular/common/http';
+
+export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
+  return new TranslateHttpLoader(http, './assets/i18n/', '.json');
+}
 
 @NgModule({
   declarations: [
@@ -38,7 +48,8 @@ import { HistoryComponent } from './history/history.component';
     InputGroupComponent,
     OfflineComponent,
     SettingsComponent,
-    HistoryComponent
+    HistoryComponent,
+    ProfileComponent
   ],
   imports: [
     CommonModule,
@@ -59,7 +70,16 @@ import { HistoryComponent } from './history/history.component';
     MatDatepickerModule,
     FormsModule, 
     ReactiveFormsModule,
-    SharedComponentsRoutingModule
+    SharedComponentsRoutingModule,
+    TranslateModule.forChild({
+      defaultLanguage: 'en',
+        loader: {
+            provide: TranslateLoader,
+            useFactory: HttpLoaderFactory,
+            deps: [HttpClient]
+        },
+        extend: true
+      })
   ],
   exports: [
     HeaderComponent,
@@ -82,7 +102,14 @@ import { HistoryComponent } from './history/history.component';
     MatSelectModule,
     FormsModule,
     ReactiveFormsModule,
-    OfflineComponent
+    OfflineComponent,
+    NgxTranslateModule
   ]
 })
-export class SharedComponentsModule { }
+export class SharedComponentsModule { 
+  constructor(protected translateService: TranslateService) {
+    const currentLang = translateService.currentLang;
+    translateService.currentLang = '';
+    translateService.use(localStorage.getItem('language') || 'en');
+}
+}

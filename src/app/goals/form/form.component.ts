@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { TranslateService } from '@ngx-translate/core';
 import { Goal } from 'src/app/models/goal';
 import { GoalsService } from 'src/app/services/goals.service';
 import { ModalService } from 'src/app/services/modal.service';
@@ -17,7 +18,7 @@ export class FormComponent implements OnInit {
 
   constructor(private goalService: GoalsService, private modalService: ModalService,
     private fb: FormBuilder, private router: Router,
-    private userService : UsersService) { }
+    private userService: UsersService, private translate: TranslateService) { }
 
   ngOnInit() {
     this.getData();
@@ -66,13 +67,18 @@ export class FormComponent implements OnInit {
     })
 
     if (!this.mainForm.valid) {
-      if(this.mainForm.controls['hours'].invalid){
-          this.modalService.showMessage('Hours must be between 0 and 150!');
-          this.goal.hours = 0;
-          return;
+      if (this.mainForm.controls['hours'].invalid) {
+        this.translate.get('InvalidHours').subscribe((res: string) => {
+          this.modalService.showMessage(res);
+        });
+
+        this.goal.hours = 0;
+        return;
       }
       else
-        this.modalService.showMessage('Please fill all the fields!');
+        this.translate.get('AllFieldsRequired').subscribe((res: string) => {
+          this.modalService.showMessage(res);
+        });
       return;
     }
 
@@ -85,9 +91,9 @@ export class FormComponent implements OnInit {
     else {
       this.goalService.save(this.mainForm.value).subscribe({
         next: data => {
-        
-      }
-    })
+
+        }
+      })
     }
   }
 }

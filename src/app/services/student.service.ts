@@ -19,7 +19,6 @@ export class StudentService {
 
   public getStudents(): any {
     this.httpClient.get<Student[]>(EndPoints.GETSTUDENTS + this.userId).subscribe((data) => {
-      console.log(data);
       this._studentList.next(data);
     })
 
