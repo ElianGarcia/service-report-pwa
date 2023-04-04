@@ -50,6 +50,7 @@
     "Videos": "Videos",
     "Return Visits": "Return Visits",
     "Return Visit": "Return Visit",
+    "Bible Studies": "Bible Studies",
     
     "Notes": "Notes",
     "Save": "Save",
@@ -88,7 +89,7 @@
     "AllFieldsRequired": "All fields are required.",
     "IncrementHint": "This decimal value represents literal minutes, for example, 0.30 means 30 minutes that will be added or subtracted to the current time when you click the increment/decrement buttons.",
 
-    "fieldServiceReport": "This is my field service report for the month of ##month \n*Hours:* ##hour \n*Placements:* ##placement \n*Videos:* ##video \n*Return visits:* ##visit",
+    "fieldServiceReport": "This is my field service report for the month of ##month \n*Hours:* ##hour \n*Placements:* ##placement \n*Videos:* ##video \n*Return visits:* ##visit \n*Bible studies:* ##study \n",
 
     "January": "January",
     "February": "February",
