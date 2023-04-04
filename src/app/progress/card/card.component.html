@@ -19,11 +19,16 @@
 
       <br />
 
-      <tr>
+      <tr class="cardBody">
         <td>{{hoursCount}}</td>
         <td>{{placementsCount}}</td>
         <td>{{videosCount}}</td>
         <td>{{returnVisitsCount}}</td>
+      </tr>
+
+      <tr class="cardFooter">
+        <td class="text-end fw-bold" colspan="3">{{'Bible courses' | translate}}</td>
+        <td colspan="1">{{studentsCount}}</td>
       </tr>
     </table>
   </mat-card-content>

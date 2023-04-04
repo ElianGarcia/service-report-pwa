@@ -4,7 +4,8 @@ import {
   HttpHandler,
   HttpEvent,
   HttpInterceptor,
-  HttpResponse
+  HttpResponse,
+  HttpHeaders
 } from '@angular/common/http';
 import { finalize, Observable } from 'rxjs';
 import { LoadingService } from '../services/loading.service';
@@ -15,7 +16,7 @@ export class LoadingInterceptor implements HttpInterceptor {
   private requests: HttpRequest<any>[] = [];
   private totalRequests = 0;
 
-  constructor(private loadingService: LoadingService) { 
+  constructor(private loadingService: LoadingService) {
     this.loadingService.isLoading.next(false);
   }
 
@@ -25,15 +26,17 @@ export class LoadingInterceptor implements HttpInterceptor {
     this.loadingService.isLoading.next(this.requests.length > 0);
   }
 
+  isActivityRequest(request: HttpRequest<unknown>) {
+    if (request.url.includes(EndPoints.SAVEACTIVITY) || request.url.includes(EndPoints.UPDATEGOAL)) {
+      return true;
+    }
+    return false;
+  }
+
   intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
     this.totalRequests++;
 
-    //condition to check if the request is for login or register
-    if (!request.url.includes(EndPoints.LOGIN) || !request.url.includes(EndPoints.REGISTER)) {
-      request.headers.set('Authorization', 'Bearer ' + localStorage.getItem('jwt'));
-    }
-
-    if (!request.url.includes(EndPoints.SAVEACTIVITY) || !request.url.includes(EndPoints.UPDATEGOAL)) {
+    if (this.isActivityRequest(request) === false) {
       this.loadingService.isLoading.next(true);
     }
 

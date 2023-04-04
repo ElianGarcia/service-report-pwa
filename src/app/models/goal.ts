@@ -3,6 +3,7 @@ export class Goal {
     hours : number;
     placements : number;
     videos : number;
+    students : number;
     userId : number;
     month? : number;
     returnVisits? : number;

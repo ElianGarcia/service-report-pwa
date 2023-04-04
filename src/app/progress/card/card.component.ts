@@ -15,6 +15,7 @@ export class CardComponent implements OnInit {
   placementsCount: number = 0;
   videosCount: number = 0;
   returnVisitsCount: number = 0;
+  studentsCount: number = 0;
 
   constructor(private snackBar: MatSnackBar, private translate: TranslateService) {
 
@@ -25,6 +26,7 @@ export class CardComponent implements OnInit {
     this.placementsCount = this.data.placements || 0;
     this.videosCount = this.data.videos || 0;
     this.returnVisitsCount = this.data.returnVisits || 0;
+    this.studentsCount = this.data.students || 0;
   }
 
   getMessage(): string {
@@ -35,9 +37,8 @@ export class CardComponent implements OnInit {
         .replace('##hour', this.hoursCount.toString())
         .replace('##placement', this.placementsCount.toString())
         .replace('##video', this.videosCount.toString())
-        .replace('##visit', this.returnVisitsCount.toString());
-
-      console.log(message);
+        .replace('##visit', this.returnVisitsCount.toString())
+        .replace('##study', this.studentsCount.toString());
     });
 
     return message;
@@ -48,7 +49,8 @@ export class CardComponent implements OnInit {
   }
 
   getLink(): string {
-    return `whatsapp://send?text=${this.getMessage()}`;
+    return `https://wa.me/?text=${this.getMessage()}`;
+    //return `whatsapp://send?text=${this.getMessage()}`;
   }
 
   copyToClipboard() {
@@ -64,7 +66,8 @@ export class CardComponent implements OnInit {
         .replace('##hour', this.hoursCount.toString())
         .replace('##placement', this.placementsCount.toString())
         .replace('##video', this.videosCount.toString())
-        .replace('##visit', this.returnVisitsCount.toString());
+        .replace('##visit', this.returnVisitsCount.toString())
+        .replace('##study', this.studentsCount.toString());
 
       navigator.clipboard.writeText(message);
 

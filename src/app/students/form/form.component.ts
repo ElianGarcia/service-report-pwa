@@ -57,12 +57,13 @@ export class FormComponent implements OnInit {
       studentId: [0, Validators.required],
       name: ['', Validators.required],
       phone: [''],
-      placementId: ['', Validators.required],
+      placementId: [''],
       address: ['', Validators.required],
       active: [true, Validators.required],
       dayToVisit: ['', Validators.required],
       observations: [''],
-      userId: [0, Validators.required]
+      userId: [0, Validators.required],
+      isStudent: [false, Validators.required]
     })
 
     this.mainForm.patchValue({

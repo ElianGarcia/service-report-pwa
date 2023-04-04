@@ -28,6 +28,19 @@ mat-card {
   background-color: #f1efd5;
 }
 
+.cardFooter {
+  border-top: 1px solid #131212;
+}
+
+.cardBody > td {
+  padding-bottom: 8px;
+}
+
+.cardFooter > td {
+  padding-top: 8px;
+  
+}
+
 @media (max-width: 600px) {
   th {
     font-size: medium;

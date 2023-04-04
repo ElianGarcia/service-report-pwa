@@ -9,4 +9,5 @@ export class Student {
     dayToVisit: string;
     observations: string;
     returnVisits? : any;
+    isStudent: boolean;
 }

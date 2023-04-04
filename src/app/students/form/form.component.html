@@ -58,7 +58,7 @@
                 </div>
 
                 <div class="row">
-                    <mat-form-field class="col-md-8 col-xl-8 col-xs-8 col-8">
+                    <mat-form-field class="col-md-12 col-xl-12 col-xs-12 col-12">
                         <mat-label>{{'Address' | translate}}</mat-label>
                         <input matInput type="text" formControlName="address">
                         <button *ngIf="mainForm.get('address').value" matSuffix mat-icon-button aria-label="Clear"
@@ -69,9 +69,12 @@
                             {{getError('address')}}
                         </mat-error>
                     </mat-form-field>
+                </div>
 
-                    <mat-slide-toggle class="col-4" formControlName="active">{{'Active' | translate}}</mat-slide-toggle>
+                <div class="row justify-content-center">
+                    <mat-slide-toggle class="col-6" formControlName="isStudent">{{'Student' | translate}}</mat-slide-toggle>
 
+                    <mat-slide-toggle class="col-6" formControlName="active">{{'Active' | translate}}</mat-slide-toggle>
                 </div>
 
                 <mat-form-field class="col-12">
@@ -87,7 +90,7 @@
                 </mat-form-field>
             </form>
 
-            <div class="row mt-2 justify-content-between">
+            <div class="row mt-2 pb-3 mb-3 justify-content-between">
                 <a href="javascript:void(0)" class="btn btn-outline-dark" [routerLink]="['/app/students']"
                     routerLinkActive="router-link-active">
                     {{'Cancel' | translate}}</a>

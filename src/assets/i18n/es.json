@@ -50,6 +50,7 @@
     "Videos": "Videos",
     "Return Visits": "Revisitas",
     "Return Visit": "Revisita",
+    "Bible courses": "Cursos Biblicos",
     
     "Notes": "Notas",
     "Save": "Guardar",
@@ -88,7 +89,7 @@
     "AllFieldsRequired": "Todos los campos son obligatorios.",
     "IncrementHint": "Este valor decimal representa minutos literales, como ejemplo, 0.30 significa 30 minutos que se agregarán o restarán al tiempo actual cuando haga clic en los botones de incremento / decremento.",
 
-    "fieldServiceReport": "Este es mi informe de servicio de campo para el mes de ##month \n*Horas:* ##hour \n*Publicaciones:* ##placement \n*Videos:* ##video \n*Revisitas:* ##visit",
+    "fieldServiceReport": "Este es mi informe de servicio de campo para el mes de ##month \n*Horas:* ##hour \n*Publicaciones:* ##placement \n*Videos:* ##video \n*Revisitas:* ##visit \n*Cursos Bíblicos:* ##study",
 
     "January": "Enero",
     "February": "Febrero",

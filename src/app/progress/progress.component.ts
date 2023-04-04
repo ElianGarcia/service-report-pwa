@@ -18,6 +18,7 @@ export class ProgressComponent implements OnInit {
   getData() {
     this.goalsService.getProgress().subscribe(res => {
       this.list = res;
+      console.log(this.list);
     })
   }
 }
