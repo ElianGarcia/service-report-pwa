@@ -26,6 +26,6 @@ export class SettingsService {
   }
 
   update(settings : Settings) {
-    return this.httpClient.put<Settings>(EndPoints.UPDATESETTINGS + this.userService.getUser().userId, settings, this.requestOptions);
+    return this.httpClient.put<Settings>(EndPoints.UPDATESETTINGS, settings, this.requestOptions);
   }
 }

@@ -1,0 +1,24 @@
+/* Style for profile photo */
+.profile-photo {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: fill;
+  }
+  
+  /* Style for profile information */
+  .profile-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+  }
+
+  .profile-photo-container {
+    display: flex;
+    justify-content: center!important;
+  }
+  
+  .profile-info p {
+    margin: 5px 0;
+  }

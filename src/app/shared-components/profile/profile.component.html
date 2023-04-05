@@ -2,4 +2,22 @@
     [title]="'Profile'">
 </app-header>
 
+<div class="container col-md-8 pb-5">
+    <div class="row">
+        <div class="col-12 justify-content-center">
+            <div class="profile-photo-container">
+                <img class="profile-photo" src="assets\images\user-icon.png" alt="Profile Photo">
+              </div>
+
+              <div class="profile-info">
+                <h1>{{profile.name}}</h1>
+                <p>Username: <strong>{{profile.userName}}</strong></p>
+                <p>Email: <strong>{{profile.email}}</strong></p>
+                <p>Country: <strong>{{profile.countryName}}</strong></p>
+                <p>Congregation: <strong>{{profile.congregationName}}</strong></p>
+              </div>
+        </div>
+    </div>
+</div>
+
 <app-footer></app-footer>

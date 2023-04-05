@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { TranslateService } from '@ngx-translate/core';
+import { Settings } from 'src/app/models/settings';
+import { SettingsService } from 'src/app/services/settings.service';
 import { UsersService } from 'src/app/services/users.service';
 
 @Component({
@@ -9,6 +11,7 @@ import { UsersService } from 'src/app/services/users.service';
   styleUrls: ['./settings.component.css']
 })
 export class SettingsComponent implements OnInit {
+  private settings : Settings;
   incrementValue = 1;
   siteLanguage = 'English';
   language = {code: 'en', label: 'English'};
@@ -19,14 +22,28 @@ export class SettingsComponent implements OnInit {
   ];
 
   constructor(private userService : UsersService,
-    private snack : MatSnackBar, private translate: TranslateService) { }
+    private snack : MatSnackBar, private translate: TranslateService,
+    private settingsService : SettingsService) { }
 
   ngOnInit(): void {
-    this.incrementValue = this.userService.getIncrementValue();
+    this.settingsService.getSettings().subscribe(
+      {
+        next: (settings) => {
+          this.settings = settings;
+          this.incrementValue = this.settings.incrementValue;
 
-    //set the language to the one saved in the service
-    this.language = localStorage.getItem('language') === 'en' 
-      ? this.languageList[0] : this.languageList[1];
+          switch(this.settings.language.trim()){
+            case 'en':
+              this.language = this.languageList[0];
+              break;
+            case 'es':
+              this.language = this.languageList[1];
+              break;
+          }
+
+        },
+        error: (err) => console.log(err)
+      })
   }
 
   save(){
@@ -34,7 +51,17 @@ export class SettingsComponent implements OnInit {
       this.incrementValue = 0.10;
     }
 
-    this.userService.setIncrementValue(this.incrementValue);
+    this.settings.incrementValue = this.incrementValue;
+
+    this.settingsService.update(this.settings).subscribe({
+      next: (settings) => {
+        this.translate.use(this.settings.language);
+        localStorage.setItem('language', this.settings.language);
+        
+        window.location.reload();
+      }
+    });
+
     this.snack.open("Settings saved", "OK", {duration: 1000});
   }
 
@@ -45,8 +72,7 @@ export class SettingsComponent implements OnInit {
 
     if (selectedLanguage) {
       this.siteLanguage = selectedLanguage;
-      this.translate.use(localeCode);
-      localStorage.setItem('language', localeCode);
+      this.settings.language = localeCode;
     }
   }
 }

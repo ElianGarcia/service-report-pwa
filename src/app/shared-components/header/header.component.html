@@ -52,6 +52,7 @@
     
     <mat-menu #menu="matMenu">
         <button mat-menu-item [routerLink]="['/app/shared/about']" routerLinkActive="router-link-active" >{{'About' | translate}}</button>
+        <button mat-menu-item [routerLink]="['/app/shared/profile']" routerLinkActive="router-link-active" >{{'My profile' | translate}}</button>
         <button mat-menu-item [routerLink]="['/app/shared/settings']" routerLinkActive="router-link-active" >{{'Settings' | translate}}</button>
         <button mat-menu-item (click)="logout()">{{'Logout' | translate}}</button>
       </mat-menu>

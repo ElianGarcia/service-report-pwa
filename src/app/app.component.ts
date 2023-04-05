@@ -5,6 +5,7 @@ import { LoadingService } from './services/loading.service';
 import { TranslateService } from "@ngx-translate/core";
 import { SwUpdate, VersionReadyEvent } from '@angular/service-worker';
 import { filter, map } from 'rxjs';
+import { SettingsService } from './services/settings.service';
 
 @Component({
   selector: 'app-root',
@@ -15,20 +16,26 @@ export class AppComponent {
   title = 'Service Report App';
 
   constructor(public loadingService: LoadingService, private translate: TranslateService,
-    private update: SwUpdate, private onlineStatusService: OnlineStatusService, private router: Router) {
+    private update: SwUpdate, private onlineStatusService: OnlineStatusService,
+    private router: Router, private settings: SettingsService) {
     this.loadingService.isLoading.next(false);
 
     this.onlineStatusService.status.subscribe((status: OnlineStatusType) => {
       this.router.navigateByUrl('/offline');
     });
 
-    // translate.use(localStorage.getItem('language') || 'en');
-    // console.log('Current language: ' + translate.currentLang);
     this.updateClient();
   }
 
   ngOnInit() {
     this.updateClient();
+
+    this.settings.getSettings().subscribe({
+      next: (settings) => {
+        this.translate.setDefaultLang(settings.language.trim());
+        this.translate.use(settings.language.trim());
+      }
+    });
   }
 
   updateClient() {
