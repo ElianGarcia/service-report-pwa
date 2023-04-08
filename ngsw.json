@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1680712159128,
+  "timestamp": 1680969819167,
   "index": "/service-report-pwa/index.html",
   "assetGroups": [
     {
@@ -19,7 +19,7 @@
         "/service-report-pwa/common.66c0731b09f0aa98.js",
         "/service-report-pwa/favicon.ico",
         "/service-report-pwa/index.html",
-        "/service-report-pwa/main.db5cf617501f3eab.js",
+        "/service-report-pwa/main.cd6b3fc11000a2b9.js",
         "/service-report-pwa/manifest.webmanifest",
         "/service-report-pwa/polyfills.3bd5f42080f24556.js",
         "/service-report-pwa/runtime.851ec1327611224b.js",
@@ -46,7 +46,8 @@
         "/service-report-pwa/assets/icons/icon-72x72.png",
         "/service-report-pwa/assets/icons/icon-96x96.png",
         "/service-report-pwa/assets/images/cover.png",
-        "/service-report-pwa/assets/images/dev-photo.png"
+        "/service-report-pwa/assets/images/dev-photo.png",
+        "/service-report-pwa/assets/images/user-icon.png"
       ],
       "patterns": []
     }
@@ -58,8 +59,8 @@
     "/service-report-pwa/689.80ec30021074a914.js": "e68e2b78811ae835a5c139a1ac83db1ad68f2d0a",
     "/service-report-pwa/714.7edcb8411d988fc1.js": "ff56f48f4632808760d263a0ec5428e240075706",
     "/service-report-pwa/854.6cd77275a3096b31.js": "48e8c201472cdeaf23d3ade38972ba280449c2d9",
-    "/service-report-pwa/assets/i18n/en.json": "023f65b08e3a441a9e829299ca2c49d1ab65d2ef",
-    "/service-report-pwa/assets/i18n/es.json": "22c53b21560c650b6d2467f3e29271fa89be3998",
+    "/service-report-pwa/assets/i18n/en.json": "4d8c65cff6557b310d319265383670890b0092ec",
+    "/service-report-pwa/assets/i18n/es.json": "2166a0631307f7414ef6d4b0a2c1d9cedee36cc0",
     "/service-report-pwa/assets/icons/icon-128x128.png": "4e3ab81100f61d5d2145cbe95e9d9670b6e8e894",
     "/service-report-pwa/assets/icons/icon-144x144.png": "f99efabd89451cfb57d0eb0309cec8d5bb23e3c2",
     "/service-report-pwa/assets/icons/icon-152x152.png": "485d1be1cb8260cc739f8142900426dfd7c607b1",
@@ -70,11 +71,12 @@
     "/service-report-pwa/assets/icons/icon-96x96.png": "97a71c6b20e631e22f86d4381b054d69cb85a3ea",
     "/service-report-pwa/assets/images/cover.png": "58c0129b651b73bedb787f2cf49bd593e92147db",
     "/service-report-pwa/assets/images/dev-photo.png": "65547da00e69ccb6e01db28bc38ec183c50b2cb9",
+    "/service-report-pwa/assets/images/user-icon.png": "3e2f1ca3f02633402f7b72d45532aada2d0eaebf",
     "/service-report-pwa/common.66c0731b09f0aa98.js": "5dd82c4c0a043daad085b892d1e265c03cc7e21d",
     "/service-report-pwa/favicon.ico": "22f6a4a3bcaafafb0254e0f2fa4ceb89e505e8b2",
-    "/service-report-pwa/index.html": "a45c0b2849af516ab902abd22475a1be8d244d26",
-    "/service-report-pwa/main.db5cf617501f3eab.js": "1f5a08c1ea2713e8e061aaa83c06fda3adb6e9d3",
-    "/service-report-pwa/manifest.webmanifest": "af32190fbf399824caffc1d23847466acbe50360",
+    "/service-report-pwa/index.html": "5c53efef17bef257ade901912344e05bb6248707",
+    "/service-report-pwa/main.cd6b3fc11000a2b9.js": "38d74c3d8bb3dcb1162802703129c1435480f057",
+    "/service-report-pwa/manifest.webmanifest": "0b46fc136910516b6fbf9904fd549bb9d1fb2c8b",
     "/service-report-pwa/polyfills.3bd5f42080f24556.js": "196ea28a97244231704876f02e8fe2b12c6f734d",
     "/service-report-pwa/runtime.851ec1327611224b.js": "8935868eea7c260750fd5b56ace79dc74f5a3252",
     "/service-report-pwa/styles.0a5669489d0443f1.css": "3e44de0c521c7750f244aeeb7834d840a1c34240"

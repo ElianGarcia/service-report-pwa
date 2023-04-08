@@ -3,6 +3,7 @@
   "short_name": "Service Report",
   "theme_color": "#ffd740", 
   "background_color": "#ffd740",
+  "iconUrl": "assets/icons/icon-512x512.png",
   "display": "standalone",
   "scope": "./",
   "start_url": "./",
