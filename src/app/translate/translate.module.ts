@@ -3,7 +3,6 @@ import { CommonModule } from '@angular/common';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
-import { SettingsService } from '../services/settings.service';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http,
@@ -17,7 +16,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     CommonModule,
     HttpClientModule,
     TranslateModule.forRoot({
-      defaultLanguage: localStorage.getItem('language') || 'en',
+      defaultLanguage: localStorage.getItem('language')?.trim() || 'en',
       loader: {
         provide: TranslateLoader,
         useFactory: HttpLoaderFactory,

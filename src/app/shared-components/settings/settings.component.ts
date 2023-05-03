@@ -29,8 +29,9 @@ export class SettingsComponent implements OnInit {
     this.settingsService.getSettings().subscribe(
       {
         next: (settings) => {
+          console.log(settings);
           this.settings = settings;
-          this.incrementValue = this.settings.incrementValue;
+          this.incrementValue = this.settings.incrementValue || 1;
 
           switch(this.settings.language.trim()){
             case 'en':
@@ -56,13 +57,16 @@ export class SettingsComponent implements OnInit {
     this.settingsService.update(this.settings).subscribe({
       next: (settings) => {
         this.translate.use(this.settings.language);
-        localStorage.setItem('language', this.settings.language);
-        
-        window.location.reload();
+        localStorage.setItem('language', this.settings.language.trim());
+        localStorage.setItem('incrementValue', this.settings.incrementValue.toString());
       }
     });
 
-    this.snack.open("Settings saved", "OK", {duration: 1000});
+    this.snack.open("Settings saved", "OK", {duration: 1000}).afterDismissed().subscribe({
+      next: () => {
+        window.location.reload();
+      }
+    });
   }
 
   changeSiteLanguage(localeCode: string): void {

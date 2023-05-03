@@ -8,14 +8,18 @@ import { UsersService } from '../services/users.service';
 @Component({
   selector: 'app-tabs',
   templateUrl: './tabs.component.html',
-  styleUrls: ['./tabs.component.css']
+  styleUrls: ['./tabs.component.css'],
 })
 export class TabsComponent implements OnInit {
   activity: Activity = new Activity();
   mainForm: FormGroup;
 
-  constructor(private dailyActivity: DailyActivityService, private fb: FormBuilder,
-    private modalService: ModalService, private userService: UsersService) {
+  constructor(
+    private dailyActivity: DailyActivityService,
+    private fb: FormBuilder,
+    private modalService: ModalService,
+    private userService: UsersService
+  ) {
     this.getData();
   }
 
@@ -30,89 +34,94 @@ export class TabsComponent implements OnInit {
     var date = new Date(this.activity.date).toISOString();
 
     this.dailyActivity.getPastActivity(date).subscribe({
-      next: (res) => this.activity = res
-    })
+      next: (res) => (this.activity = res),
+    });
   }
 
   getData() {
     this.dailyActivity.getActivity().subscribe({
-      next: (res) => this.activity = res,
-      
+      next: (res) => (this.activity = res),
+
       error: (err) => {
-        this.modalService.showMessage('An error occured while getting the data! ' + err.message);
+        this.modalService.showMessage(
+          'An error occured while getting the data! ' + err.message
+        );
         console.log(err);
-      }
-    })
-}
-
-getDate() : Date {
-  return this.activity.date;
-}
-
-receiveData($event) {
-  switch ($event.title) {
-    case 'Hours':
-      this.activity.hours = $event.value;
-      break;
-    case 'Placements':
-      this.activity.placements = $event.value;
-      break;
-    case 'Videos':
-      this.activity.videos = $event.value;
-      break;
-    case 'Revisitas':
-      this.activity.returnVisits = $event.value;
-      break;
-    default:
-      break;
-  }
-
-  this.save();
-}
-
-save() {
-  this.mainForm = this.fb.group({
-    activityId: [this.activity.activityId || 0, []],
-    hours: [this.activity.hours, [Validators.required]],
-    placements: [this.activity.placements, [Validators.required]],
-    videos: [this.activity.videos, [Validators.required]],
-    returnVisits: [0, [Validators.required]],
-    userId: [0, [Validators.required]],
-    date: [this.activity.date, [Validators.required]]
-  })
-
-  this.mainForm.patchValue({
-    userId: this.userService.getUser().userId,
-  })
-
-  if (!this.mainForm.valid) {
-    this.modalService.showMessage('Please fill all the fields!');
-    return;
-  }
-
-  if (this.activity.activityId != 0) {
-    this.dailyActivity.update(this.mainForm.value).subscribe({
-      next: (res) => {
-        this.activity.activityId = res;
       },
-      error: (err) => {
-        this.modalService.showMessage('An error occured while saving the data! ' + err.message);
-        console.log(err);
-      }
     });
   }
-  else {
-    this.dailyActivity.save(this.mainForm.value).subscribe({
-      next: (res) => {
-        this.activity.activityId = res;
-      },
-      error: (err) => {
-        this.modalService.showMessage('An error occured while saving the data! ' + err.message);
-        console.log(err);
-      }
+
+  getDate(): Date {
+    return this.activity.date;
+  }
+
+  receiveData($event) {
+    switch ($event.title) {
+      case 'Hours':
+        this.activity.hours = $event.value;
+        break;
+      case 'Placements':
+        this.activity.placements = $event.value;
+        break;
+      case 'Videos':
+        this.activity.videos = $event.value;
+        break;
+      case 'Revisitas':
+        this.activity.returnVisits = $event.value;
+        break;
+      default:
+        break;
+    }
+
+    this.save();
+  }
+
+  save() {
+    this.mainForm = this.fb.group({
+      activityId: [this.activity.activityId || 0, []],
+      hours: [this.activity.hours, [Validators.required]],
+      placements: [this.activity.placements, [Validators.required]],
+      videos: [this.activity.videos, [Validators.required]],
+      returnVisits: [0, [Validators.required]],
+      userId: [0, [Validators.required]],
+      date: [this.activity.date, [Validators.required]],
     });
+
+    this.mainForm.patchValue({
+      userId: this.userService.getUser().userId,
+    });
+
+    if (!this.mainForm.valid) {
+      this.modalService.showMessage('Please fill all the fields!');
+      return;
+    }
+
+    if (this.activity.activityId != 0) {
+      this.dailyActivity.update(this.mainForm.value).subscribe({
+        next: (res) => {
+          this.activity.activityId = res;
+          console.log(res);
+        },
+        error: (err) => {
+          this.activity.activityId = 0;
+          this.modalService.showMessage(
+            'An error occured while saving the data! ' + err.message
+          );
+          console.log(err);
+        },
+      });
+    } else {
+      this.dailyActivity.save(this.mainForm.value).subscribe({
+        next: (res) => {
+          this.activity.activityId = res;
+        },
+        error: (err) => {
+          this.modalService.showMessage(
+            'An error occured while saving the data! ' + err.message
+          );
+          console.log(err);
+        },
+      });
+    }
   }
 }
-
-}
-

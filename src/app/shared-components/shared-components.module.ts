@@ -110,6 +110,6 @@ export class SharedComponentsModule {
   constructor(protected translateService: TranslateService) {
     const currentLang = translateService.currentLang;
     translateService.currentLang = '';
-    translateService.use(localStorage.getItem('language') || 'en');
+    translateService.use(localStorage.getItem('language')?.trim() || 'en');
 }
 }

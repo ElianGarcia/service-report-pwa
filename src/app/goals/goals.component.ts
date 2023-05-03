@@ -50,9 +50,9 @@ export class GoalsComponent implements OnInit {
     this.hours = {
       actual: this.goal.progress.hours,
       goal: this.goal.hours,
-      remaining: this.goal.hours - this.goal.progress.hours,
+      remaining: 0,
     }
-
+    
     this.returnVisits = {
       actual: this.goal.progress.returnVisits,
       goal: this.goal.returnVisits,
