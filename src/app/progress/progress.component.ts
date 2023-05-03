@@ -32,6 +32,7 @@ export class ProgressComponent implements OnInit {
         goalObject.month = date.getMonth()+1;
 
         this.list.push(goalObject);
+        this.list = this.list.reverse()
       }
     });
   }
