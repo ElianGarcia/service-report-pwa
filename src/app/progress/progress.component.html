@@ -1,9 +1,9 @@
 <app-header [title]="'Progress'">
 </app-header>
 
-<div class="container col-md-8 pb-5">
+<div class="container col-md-8 pb-5 mb-5">
     <div class="row justify-content-center">
-        <div class="col-12" *ngIf="list">
+        <div class="col-12 pb-5 mb-3" *ngIf="list">
             <app-card *ngFor="let item of list" [data]="item"></app-card>
         </div>
 

@@ -15,7 +15,9 @@ export class CardComponent implements OnInit {
   ngOnInit() {
     if (this.title === 'Hours') {
       let startMinutes = Math.floor(this.values.actual.toFixed(2) * 60);
-      let endMinutes = Math.floor(this.values.goal.toFixed(2) * 60);
+
+      if(startMinutes > 0){
+        let endMinutes = Math.floor(this.values.goal.toFixed(2) * 60);
 
       // subtract end time from start time
       let diffMinutes = endMinutes - startMinutes;
@@ -31,6 +33,10 @@ export class CardComponent implements OnInit {
       // format result as a string
       let result = hours + '.' + (minutes < 10 ? '0' : '') + minutes;
       this.values.remaining = result;
+      }
+      else
+        this.values.remaining = this.values.goal
+
       this.values.actual = this.values.actual.toFixed(2);
     }
   }
