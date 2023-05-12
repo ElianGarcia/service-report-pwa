@@ -20,7 +20,7 @@ export class DailyActivityService {
   constructor(private httpClient : HttpClient, private userService : UsersService) { }
 
   get userId () {
-    return this.userService.getUser().userId;
+    return this.userService.getUser()?.userId;
   }
     
   public getActivity() : any {

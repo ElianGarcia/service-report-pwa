@@ -18,6 +18,10 @@ export class UsersService {
 
     }
 
+  isAdmin() {
+    return this.getUser()?.isAdmin;
+  }
+
   isUserAuthenticated() {
     const token = localStorage.getItem("jwt");
     if (token && !this.jwtHelper.isTokenExpired(token)) {

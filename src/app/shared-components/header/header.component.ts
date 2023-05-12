@@ -22,7 +22,7 @@ export class HeaderComponent implements OnInit {
   maxDate = new Date();
   dateSelected = new Date();
 
-  constructor(private userService : UsersService) { }
+  constructor(public userService : UsersService) { }
 
   ngOnInit(): void {
 

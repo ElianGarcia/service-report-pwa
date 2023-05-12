@@ -27,7 +27,7 @@ export class GoalsService {
   };
   
   public getProgress() : any {
-    let user = this.userService.getUser().userId;
+    let user = this.userService.getUser()?.userId;
     return this.httpClient.get<Goal[]>(EndPoints.GETPROGRESS + user, this.requestOptions);
   };
 

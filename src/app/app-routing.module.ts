@@ -19,6 +19,10 @@ const routes: Routes = [
     loadChildren: () => import('./auth/auth.module').then(m => m.AuthModule)
   },
   {
+    path: 'cronometer',
+    loadChildren: () => import('./cronometer/cronometer.module').then(m => m.CronometerModule)
+  },
+  {
     path: 'offline',
     component: OfflineComponent
   }

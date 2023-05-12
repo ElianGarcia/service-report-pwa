@@ -9,6 +9,7 @@ export class User {
     createdAt: string;
     updatedAt: string;
 
+    isAdmin: boolean;
     countryId: number;
     countryName: string;
     congregationId: number;

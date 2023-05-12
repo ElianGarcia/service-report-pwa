@@ -22,7 +22,7 @@ export class SettingsService {
     private userService : UsersService) { }
 
   getSettings() {
-    return this.httpClient.get<Settings>(EndPoints.GETSETTINGS + this.userService.getUser().userId, this.requestOptions);
+    return this.httpClient.get<Settings>(EndPoints.GETSETTINGS + this.userService.getUser()?.userId, this.requestOptions);
   }
 
   update(settings : Settings) {

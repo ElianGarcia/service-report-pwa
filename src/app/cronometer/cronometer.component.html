@@ -1,0 +1,20 @@
+<app-header [title]="'Cronometer'"> </app-header>
+
+<div class="container col-md-8 pb-5">
+  <div class="row justify-content-center">
+    <h1 id="hours">
+        {{hours < 10 ? '0' + hours : hours}}:{{minutes < 10 ? '0' + minutes : minutes}}:{{seconds < 10 ? '0' + seconds : seconds}}
+    </h1>
+
+    <div class="row justify-content-around">
+        <button (click)="pause()" class="w-50 btn btn-dark-outline"><mat-icon>stop_circle_outline</mat-icon></button>
+        <button (click)="play()" class="w-50 btn btn-dark"><mat-icon>play_circle_outline</mat-icon></button>
+    </div>
+
+    <div class="row justify-content-around">
+        <button (click)="saveTime()" class="w-100 mt-1 btn btn-dark">Stop and Save</button>
+    </div>
+  </div>
+</div>
+
+<app-footer> </app-footer>
